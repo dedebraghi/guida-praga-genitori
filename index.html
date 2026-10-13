@@ -66,7 +66,6 @@
     .safe-bottom {
       padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 84px);
     }
-    /* Material symbols helper */
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
       line-height: 1;
@@ -76,58 +75,142 @@
     .material-symbols-outlined.fill {
       font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
     }
-    /* Dettagli summary custom marker */
     details summary::-webkit-details-marker {
       display: none;
     }
     details summary {
       list-style: none;
     }
+
+    /* ========================================================= */
+    /* OTTIMIZZAZIONE STAMPA E SCARICAMENTO PDF SENZA TAGLI      */
+    /* ========================================================= */
+    @page {
+      size: A4 portrait;
+      margin: 12mm 12mm 12mm 12mm;
+    }
+
     @media print {
-      .no-print { display: none !important; }
-      .print-page { page-break-after: always; }
-      body { background: white !important; color: black !important; font-size: 11pt; }
-      details { display: block !important; }
-      details[open] { display: block !important; }
-      summary { display: none !important; }
+      /* Nascondere interfaccia e elementi dinamici */
+      header, footer, nav, .no-print, #map-tram22, #btn-print-pdf, .safe-bottom {
+        display: none !important;
+        padding-bottom: 0 !important;
+      }
+
+      /* Intestazione visibile esclusivamente su foglio/PDF */
+      .print-header {
+        display: block !important;
+      }
+
+      /* Mostrare tutte le sezioni contemporaneamente per la stampa completa */
+      .tab-content {
+        display: block !important;
+      }
+
+      /* Salti pagina esatti prima di ogni giorno */
+      .print-page-break {
+        break-before: page !important;
+        page-break-before: always !important;
+      }
+
+      /* EVITARE ASSOLUTAMENTE TAGLI A METÀ SCHEDA O PARAGRAFO */
+      article, section, .print-card, .bg-paper-surface, .bg-paper-warm {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 10pt !important;
+        padding: 10pt !important;
+        border: 1px solid #D1D5DB !important;
+        background: #FFFFFF !important;
+        box-shadow: none !important;
+        border-radius: 8pt !important;
+      }
+
+      /* Aprire ed espandere tutti gli accordion */
+      details {
+        display: block !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      details > div, details > p {
+        display: block !important;
+      }
+      summary {
+        display: block !important;
+        font-weight: bold !important;
+        margin-bottom: 4pt !important;
+        border-bottom: 1px dashed #D1D5DB !important;
+        padding-bottom: 4pt !important;
+      }
+      summary .material-symbols-outlined {
+        display: none !important;
+      }
+
+      body {
+        background: #FFFFFF !important;
+        color: #111827 !important;
+        font-size: 10.5pt !important;
+        line-height: 1.4 !important;
+      }
+
+      /* Sostituzione gradienti pesanti con sfondi puliti a basso inchiostro */
+      .bg-gradient-to-br {
+        background: #FEF2F2 !important;
+        color: #991B1B !important;
+        border: 2px solid #EF4444 !important;
+      }
+      .bg-gradient-to-br * {
+        color: #991B1B !important;
+      }
+      .bg-charcoal-soft {
+        background: #F3F4F6 !important;
+        color: #111827 !important;
+        border: 1px solid #9CA3AF !important;
+      }
     }
   </style>
 </head>
 <body class="bg-paper-base text-charcoal-soft antialiased font-sans flex flex-col min-h-screen selection:bg-amber-200">
 
-  <!-- TOP HEADER EDITORIALE CON STILE GOOGLE STITCH -->
+  <!-- TOP HEADER CON TITOLO, TASTO PDF, SELETTORE FONT E TABS -->
   <header class="bg-paper-warm/95 backdrop-blur-xl border-b border-outline-soft/80 shadow-[0_2px_12px_rgba(24,29,26,0.05)] sticky top-0 z-40">
     <div class="max-w-2xl mx-auto px-4 pt-3 pb-3 space-y-3">
       
-      <!-- BARRA SUPERIORE: LOGO, DATE E REGOLATORE DIMENSIONE TESTO -->
+      <!-- RIGA SUPERIORE: LOGO, TASTO SCARICA PDF E SELETTORE TESTO -->
       <div class="flex items-center justify-between gap-2">
         <div class="flex items-center gap-2.5">
           <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
             <span class="material-symbols-outlined text-primary text-[22px] fill">favorite</span>
           </div>
           <div>
-            <div class="flex items-center gap-1.5">
-              <h1 class="font-serif font-bold text-lg sm:text-xl text-charcoal-soft leading-tight">
-                Praga Senza Pensieri
-              </h1>
-            </div>
+            <h1 class="font-serif font-bold text-lg sm:text-xl text-charcoal-soft leading-tight">
+              Praga Senza Pensieri
+            </h1>
             <p class="text-xs font-semibold text-primary">
               Guida per Mamma & Papà <span class="text-charcoal-muted font-normal">• 27–29 Ottobre</span>
             </p>
           </div>
         </div>
 
-        <!-- SELETTORE ACCESSIBILITÀ CARATTERI GRANDI (STILE STITCH) -->
-        <div class="flex items-center bg-paper-surface p-1 rounded-full border border-outline-soft shadow-sm shrink-0">
-          <button onclick="setFontSize('normal')" id="btn-font-normal" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full font-bold text-xs flex items-center justify-center transition text-charcoal-muted hover:text-charcoal-soft" title="Testo normale">
-            Aa
+        <!-- AZIONI IN TESTATA: TASTO PDF + SELETTORE FONT -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <!-- TASTO SCARICA PDF -->
+          <button onclick="downloadPDF()" id="btn-print-pdf" class="h-9 px-2.5 sm:px-3 rounded-full bg-paper-surface hover:bg-paper-warm text-charcoal-soft border border-outline-soft shadow-sm flex items-center gap-1 font-bold text-xs active:scale-95 transition" title="Scarica o stampa il PDF completo">
+            <span class="material-symbols-outlined text-primary text-[18px]">picture_as_pdf</span>
+            <span class="hidden sm:inline">PDF</span>
           </button>
-          <button onclick="setFontSize('large')" id="btn-font-large" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full font-extrabold text-xs flex items-center justify-center transition bg-primary text-white shadow-sm" title="Testo grande (attivo)">
-            Aa+
-          </button>
-          <button onclick="setFontSize('xlarge')" id="btn-font-xlarge" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full font-extrabold text-xs flex items-center justify-center transition text-charcoal-muted hover:text-charcoal-soft" title="Testo molto grande">
-            Aa++
-          </button>
+
+          <!-- SELETTORE ACCESSIBILITÀ CARATTERI GRANDI (STILE STITCH) -->
+          <div class="flex items-center bg-paper-surface p-0.5 rounded-full border border-outline-soft shadow-sm">
+            <button onclick="setFontSize('normal')" id="btn-font-normal" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full font-bold text-xs flex items-center justify-center transition text-charcoal-muted hover:text-charcoal-soft" title="Testo normale">
+              Aa
+            </button>
+            <button onclick="setFontSize('large')" id="btn-font-large" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full font-extrabold text-xs flex items-center justify-center transition bg-primary text-white shadow-sm" title="Testo grande (attivo)">
+              Aa+
+            </button>
+            <button onclick="setFontSize('xlarge')" id="btn-font-xlarge" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full font-extrabold text-xs flex items-center justify-center transition text-charcoal-muted hover:text-charcoal-soft" title="Testo molto grande">
+              Aa++
+            </button>
+          </div>
         </div>
       </div>
 
@@ -158,127 +241,85 @@
     </div>
   </header>
 
+  <!-- INTESTAZIONE VISIBILE SOLO NEL PDF STAMPATO -->
+  <div class="print-header hidden p-4 mb-4 border-b-2 border-stone-800 text-center">
+    <h1 class="text-2xl font-serif font-bold text-black">Praga Senza Pensieri</h1>
+    <p class="text-sm font-bold text-stone-700">Guida di Viaggio per Mamma & Papà • 27–29 Ottobre</p>
+    <p class="text-xs text-stone-600">Alloggio: Hotel Páv, Křemencova 13 (Praga 1) • Emergenze: 112 • Ambasciata: +420 233 080 111</p>
+  </div>
+
   <!-- CONTENUTO PRINCIPALE -->
-  <main class="max-w-2xl mx-auto px-4 pt-5 safe-bottom space-y-6 flex-grow w-full">
+  <main class="max-w-2xl mx-auto px-4 pt-4 safe-bottom space-y-6 flex-grow w-full">
 
-    <!-- WARM REASSURING WELCOME NOTE (DA GOOGLE STITCH) -->
-    <div class="bg-paper-surface rounded-2xl p-4 sm:p-5 shadow-sm border border-outline-soft flex items-start gap-3.5">
-      <div class="w-11 h-11 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
-        <span class="material-symbols-outlined text-[24px] fill">family_restroom</span>
-      </div>
-      <div>
-        <span class="text-xs font-extrabold uppercase tracking-wider text-secondary">Per voi due, con amore</span>
-        <h2 class="font-serif font-bold text-lg sm:text-xl text-charcoal-soft mt-0.5 leading-snug">
-          Praga a passo comodo e rilassato
-        </h2>
-        <p class="text-sm sm:text-base text-charcoal-muted mt-1 leading-relaxed">
-          Niente fretta, percorsi testati in piano o discesa, e ogni fermata pronta con un tocco.
-        </p>
-      </div>
-    </div>
-
-    <!-- BANNER TRASPORTI OVER 65 (REGOLA D'ORO IN ROSSO RICHIESTA DA ANTO) -->
-    <section class="rounded-2xl bg-gradient-to-br from-terracotta-deep to-primary text-white p-5 shadow-md relative overflow-hidden border border-red-500/40">
-      <div class="relative z-10 flex flex-col gap-2.5">
-        <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-[24px]">confirmation_number</span>
-          <span class="text-xs font-black uppercase tracking-wider text-primary-fixed">Regola d'Oro Trasporti (Over 65)</span>
+    <!-- ================================================================= -->
+    <!-- GIORNO 1: MARTEDÌ 27 OTTOBRE (CON BENVENUTO, TRASPORTI & HOTEL)    -->
+    <!-- ================================================================= -->
+    <div id="tab-g1" class="tab-content space-y-5">
+      
+      <!-- BENVENUTO PER MAMMA E PAPÀ (INTEGRATO IN GIORNO 1) -->
+      <div class="bg-paper-surface rounded-2xl p-4 sm:p-5 shadow-sm border border-outline-soft flex items-start gap-3.5">
+        <div class="w-11 h-11 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+          <span class="material-symbols-outlined text-[24px] fill">family_restroom</span>
         </div>
-        <h3 class="font-serif font-bold text-xl sm:text-2xl leading-tight text-white">
-          A Praga <span class="underline decoration-amber-soft decoration-2 underline-offset-4">NON PAGATE</span> nessun biglietto!
-        </h3>
-        <p class="text-sm sm:text-base text-white/95 leading-relaxed font-medium">
-          Metro, tram e bus urbani sono <strong>completamente gratuiti</strong> per over 65. Basta portare con sé in borsa la <strong>Carta d'Identità</strong> o il <strong>Passaporto originale</strong> con la data di nascita leggibile.
-        </p>
-        <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-xl px-3.5 py-2 w-fit mt-1">
-          <span class="material-symbols-outlined text-[20px] text-amber-soft fill">check_circle</span>
-          <span class="text-xs sm:text-sm text-white font-bold">Nessun biglietto né obliteratrice necessaria</span>
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-secondary">Per voi due, con amore</span>
+          <h2 class="font-serif font-bold text-lg sm:text-xl text-charcoal-soft mt-0.5 leading-snug">
+            Praga a passo comodo e rilassato
+          </h2>
+          <p class="text-sm sm:text-base text-charcoal-muted mt-1 leading-relaxed">
+            Niente fretta, percorsi testati in piano o discesa, e ogni fermata pronta con un tocco.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- HOTEL BASECAMP CARD POTENZIATA (STILE STITCH) -->
-    <section class="bg-paper-surface rounded-2xl p-5 shadow-sm border border-outline-soft flex flex-col gap-3.5">
-      <div class="flex items-start justify-between gap-3">
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-2xl bg-primary-fixed/60 flex items-center justify-center text-primary shrink-0">
-            <span class="material-symbols-outlined text-[28px] fill">hotel</span>
+      <!-- BANNER TRASPORTI OVER 65 (REGOLA D'ORO IN ROSSO RICHIESTA DA ANTO) -->
+      <section class="rounded-2xl bg-gradient-to-br from-terracotta-deep to-primary text-white p-5 shadow-md relative overflow-hidden border border-red-500/40">
+        <div class="relative z-10 flex flex-col gap-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[24px]">confirmation_number</span>
+            <span class="text-xs font-black uppercase tracking-wider text-primary-fixed">Regola d'Oro Trasporti (Over 65)</span>
           </div>
-          <div>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-charcoal-muted">Il Vostro Albergo a Praga</span>
-            <h3 class="font-serif font-bold text-xl text-charcoal-soft leading-tight">Hotel Páv — 3 Stelle</h3>
-            <p class="text-xs sm:text-sm text-charcoal-muted font-medium">Křemencova 13, Nové Město (Praga 1)</p>
+          <h3 class="font-serif font-bold text-xl sm:text-2xl leading-tight text-white">
+            A Praga <span class="underline decoration-amber-soft decoration-2 underline-offset-4">NON PAGATE</span> nessun biglietto!
+          </h3>
+          <p class="text-sm sm:text-base text-white/95 leading-relaxed font-medium">
+            Metro, tram e bus urbani sono <strong>completamente gratuiti</strong> per over 65. Basta portare con sé in borsa la <strong>Carta d'Identità</strong> o il <strong>Passaporto originale</strong> con la data di nascita leggibile.
+          </p>
+          <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-xl px-3.5 py-2 w-fit mt-1">
+            <span class="material-symbols-outlined text-[20px] text-amber-soft fill">check_circle</span>
+            <span class="text-xs sm:text-sm text-white font-bold">Nessun biglietto né obliteratrice necessaria</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Badge posizione tranquilla -->
-      <div class="bg-paper-warm rounded-xl px-3.5 py-2 flex items-center gap-2 text-xs sm:text-sm font-semibold text-charcoal-soft">
-        <span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
-        <span>Quartiere tranquillo e pianeggiante a 200m dalla fermata tram Národní třída</span>
-      </div>
-
-      <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Pav+Kremencova+13+Prague" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2.5 shadow-sm active:scale-[0.98] transition-transform">
-        <span class="material-symbols-outlined text-primary-fixed text-[22px]">location_on</span>
-        <span>Apri Mappa Hotel Páv su Google</span>
-      </a>
-    </section>
-
-    <!-- GUIDA VOCALE FOTOCAMERA GEMINI (ACCORDION NIDIFICATO STILE STITCH) -->
-    <section class="bg-paper-surface rounded-2xl border border-outline-soft shadow-sm overflow-hidden no-print">
-      <details class="group">
-        <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-bold text-base bg-paper-warm hover:bg-stone-200/60 transition">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-              <span class="material-symbols-outlined text-[22px]">photo_camera</span>
+      <!-- HOTEL BASECAMP CARD -->
+      <section class="bg-paper-surface rounded-2xl p-5 shadow-sm border border-outline-soft flex flex-col gap-3.5">
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-primary-fixed/60 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined text-[28px] fill">hotel</span>
             </div>
             <div>
-              <p class="text-charcoal-soft font-bold text-base leading-tight">Gemini: Guida Vocale al Telefono</p>
-              <p class="text-xs text-charcoal-muted font-normal">Tocca qui per scoprire come usarlo con la fotocamera</p>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-charcoal-muted">Il Vostro Albergo a Praga</span>
+              <h3 class="font-serif font-bold text-xl text-charcoal-soft leading-tight">Hotel Páv — 3 Stelle</h3>
+              <p class="text-xs sm:text-sm text-charcoal-muted font-medium">Křemencova 13, Nové Město (Praga 1)</p>
             </div>
           </div>
-          <span class="material-symbols-outlined text-charcoal-muted text-[24px] group-open:rotate-180 transition-transform">expand_more</span>
-        </summary>
-        <div class="p-5 pt-3 bg-paper-surface border-t border-outline-soft text-sm sm:text-base text-charcoal-soft space-y-3.5">
-          <p class="italic text-charcoal-muted">
-            "Davanti a qualsiasi monumento, facciata o chiesa non serve affaticarsi a leggere tabelle piccole: basta aprire Gemini e inquadrarlo!"
-          </p>
-          <div class="grid grid-cols-1 gap-2.5">
-            <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
-              <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">1</span>
-              <div>
-                <h4 class="font-bold text-charcoal-soft">Apri Gemini</h4>
-                <p class="text-xs sm:text-sm text-charcoal-muted">Tocca l'icona dell'app Gemini sullo smartphone.</p>
-              </div>
-            </div>
-            <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
-              <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">2</span>
-              <div>
-                <h4 class="font-bold text-charcoal-soft">Fai la Foto</h4>
-                <p class="text-xs sm:text-sm text-charcoal-muted">Tocca l'icona della <strong>fotocamera</strong> in basso e inquadra la facciata.</p>
-              </div>
-            </div>
-            <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
-              <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">3</span>
-              <div>
-                <h4 class="font-bold text-charcoal-soft">Chiedi a Voce</h4>
-                <p class="text-xs sm:text-sm text-charcoal-muted">Tocca il microfono e dì: <em>"Fammi da guida in italiano!"</em></p>
-              </div>
-            </div>
-          </div>
-          <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="min-h-[46px] bg-secondary text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
-            <span class="material-symbols-outlined text-[20px]">smart_toy</span>
-            <span>Apri l'Assistente Gemini</span>
-          </a>
         </div>
-      </details>
-    </section>
 
-    <!-- ================================================================= -->
-    <!-- GIORNO 1: MARTEDÌ 27 OTTOBRE -->
-    <!-- ================================================================= -->
-    <div id="tab-g1" class="tab-content space-y-5 print-page">
-      <div class="border-b border-outline-soft pb-3">
+        <div class="bg-paper-warm rounded-xl px-3.5 py-2 flex items-center gap-2 text-xs sm:text-sm font-semibold text-charcoal-soft">
+          <span class="material-symbols-outlined text-primary text-[18px]">near_me</span>
+          <span>Quartiere tranquillo e pianeggiante a 200m dalla fermata tram Národní třída</span>
+        </div>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Pav+Kremencova+13+Prague" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2.5 shadow-sm active:scale-[0.98] transition-transform">
+          <span class="material-symbols-outlined text-primary-fixed text-[22px]">location_on</span>
+          <span>Apri Mappa Hotel Páv su Google</span>
+        </a>
+      </section>
+
+      <!-- TITOLO GIORNO 1 -->
+      <div class="border-b border-outline-soft pb-3 pt-2">
         <div class="flex items-center gap-2">
           <span class="h-2 w-8 rounded-full bg-primary"></span>
           <span class="text-xs font-black uppercase tracking-wider text-primary">Giorno 1 di 3</span>
@@ -470,7 +511,7 @@
           </a>
         </div>
 
-        <!-- ISTRUZIONI AL MOLO CON FRASARIO PRONTO (DA GOOGLE STITCH) -->
+        <!-- ISTRUZIONI AL MOLO CON FRASARIO PRONTO -->
         <details class="group bg-paper-warm rounded-xl overflow-hidden mt-1">
           <summary class="flex items-center justify-between p-3.5 cursor-pointer select-none font-bold text-sm text-charcoal-soft hover:bg-stone-200/60 transition">
             <span class="flex items-center gap-2">
@@ -551,9 +592,9 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- GIORNO 2: MERCOLEDÌ 28 OTTOBRE (GIORNO CLOU) -->
+    <!-- GIORNO 2: MERCOLEDÌ 28 OTTOBRE (GIORNO CLOU)                      -->
     <!-- ================================================================= -->
-    <div id="tab-g2" class="tab-content hidden space-y-5 print-page">
+    <div id="tab-g2" class="tab-content hidden space-y-5 print-page-break">
       <div class="border-b border-outline-soft pb-3">
         <div class="flex items-center gap-2">
           <span class="h-2 w-8 rounded-full bg-primary"></span>
@@ -829,9 +870,9 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- GIORNO 3: GIOVEDÌ 29 OTTOBRE (PARTENZA) -->
+    <!-- GIORNO 3: GIOVEDÌ 29 OTTOBRE (PARTENZA)                           -->
     <!-- ================================================================= -->
-    <div id="tab-g3" class="tab-content hidden space-y-5 print-page">
+    <div id="tab-g3" class="tab-content hidden space-y-5 print-page-break">
       <div class="border-b border-outline-soft pb-3">
         <div class="flex items-center gap-2">
           <span class="h-2 w-8 rounded-full bg-primary"></span>
@@ -972,9 +1013,9 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- TAB: ITINERARIO RAPIDO (COLPO D'OCCHIO 3 GIORNI) -->
+    <!-- TAB: ITINERARIO RAPIDO (COLPO D'OCCHIO 3 GIORNI)                  -->
     <!-- ================================================================= -->
-    <div id="tab-rapido" class="tab-content hidden space-y-5 print-page">
+    <div id="tab-rapido" class="tab-content hidden space-y-5 print-page-break">
       <div class="border-b border-outline-soft pb-3">
         <div class="flex items-center justify-between">
           <h2 class="text-2xl sm:text-3xl font-serif font-bold text-charcoal-soft">
@@ -996,7 +1037,7 @@
             <span class="text-xs font-black uppercase text-primary tracking-wider">Giorno 1 • Martedì 27 Ottobre</span>
             <h3 class="text-lg font-bold text-charcoal-soft">Arrivo, Moldava & Cena sotto Casa</h3>
           </div>
-          <button onclick="switchTab('g1')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20">
+          <button onclick="switchTab('g1')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20 no-print">
             Dettagli →
           </button>
         </div>
@@ -1042,7 +1083,7 @@
             <span class="text-xs font-black uppercase text-primary tracking-wider">Giorno 2 • Mercoledì 28 Ottobre ⭐</span>
             <h3 class="text-lg font-bold text-charcoal-soft">Castello in Discesa, Ponte & Ghetto</h3>
           </div>
-          <button onclick="switchTab('g2')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20">
+          <button onclick="switchTab('g2')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20 no-print">
             Dettagli →
           </button>
         </div>
@@ -1092,7 +1133,7 @@
             <span class="text-xs font-black uppercase text-primary tracking-wider">Giorno 3 • Giovedì 29 Ottobre</span>
             <h3 class="text-lg font-bold text-charcoal-soft">Casa Danzante, Žofín & Volo Ritorno</h3>
           </div>
-          <button onclick="switchTab('g3')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20">
+          <button onclick="switchTab('g3')" class="text-xs font-bold text-primary bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-lg border border-primary/20 no-print">
             Dettagli →
           </button>
         </div>
@@ -1130,9 +1171,9 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- TAB: CONSIGLI UTILI & EMERGENZE (NIDIFICATO IN ACCORDION) -->
+    <!-- TAB: CONSIGLI UTILI & EMERGENZE                                   -->
     <!-- ================================================================= -->
-    <div id="tab-info" class="tab-content hidden space-y-4 print-page">
+    <div id="tab-info" class="tab-content hidden space-y-4 print-page-break">
       <div class="border-b border-outline-soft pb-3">
         <h2 class="text-2xl sm:text-3xl font-serif font-bold text-charcoal-soft">
           Consigli Salva-Viaggio
@@ -1141,6 +1182,72 @@
           Regole pratiche per non farsi fregare, non stancarsi e viaggiare sereni.
         </p>
       </div>
+
+      <!-- PULSANTE DIRETTO SCARICA PDF -->
+      <div class="bg-paper-surface rounded-2xl p-4 border border-outline-soft shadow-sm flex items-center justify-between no-print">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+            <span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+          </div>
+          <div>
+            <p class="font-bold text-charcoal-soft text-sm sm:text-base">Scarica Guida Completa in PDF</p>
+            <p class="text-xs text-charcoal-muted">Pronta da salvare sul telefono o stampare per la borsa</p>
+          </div>
+        </div>
+        <button onclick="downloadPDF()" class="px-4 py-2 bg-primary text-white font-bold text-xs sm:text-sm rounded-xl active:scale-95 transition shadow-sm">
+          Scarica PDF
+        </button>
+      </div>
+
+      <!-- GUIDA VOCALE FOTOCAMERA GEMINI (ACCORDION NIDIFICATO STILE STITCH) -->
+      <section class="bg-paper-surface rounded-2xl border border-outline-soft shadow-sm overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-bold text-base bg-paper-warm hover:bg-stone-200/60 transition">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-[22px]">photo_camera</span>
+              </div>
+              <div>
+                <p class="text-charcoal-soft font-bold text-base leading-tight">Gemini: Guida Vocale al Telefono</p>
+                <p class="text-xs text-charcoal-muted font-normal">Tocca qui per scoprire come usarlo con la fotocamera</p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-charcoal-muted text-[24px] group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <div class="p-5 pt-3 bg-paper-surface border-t border-outline-soft text-sm sm:text-base text-charcoal-soft space-y-3.5">
+            <p class="italic text-charcoal-muted">
+              "Davanti a qualsiasi monumento, facciata o chiesa non serve affaticarsi a leggere tabelle piccole: basta aprire Gemini e inquadrarlo!"
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
+                <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">1</span>
+                <div>
+                  <h4 class="font-bold text-charcoal-soft">Apri Gemini</h4>
+                  <p class="text-xs sm:text-sm text-charcoal-muted">Tocca l'icona dell'app Gemini sullo smartphone.</p>
+                </div>
+              </div>
+              <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
+                <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">2</span>
+                <div>
+                  <h4 class="font-bold text-charcoal-soft">Fai la Foto</h4>
+                  <p class="text-xs sm:text-sm text-charcoal-muted">Tocca l'icona della <strong>fotocamera</strong> in basso e inquadra la facciata.</p>
+                </div>
+              </div>
+              <div class="bg-paper-warm p-3.5 rounded-xl flex items-start gap-3">
+                <span class="w-7 h-7 rounded-full bg-primary text-white font-extrabold flex items-center justify-center shrink-0 text-xs">3</span>
+                <div>
+                  <h4 class="font-bold text-charcoal-soft">Chiedi a Voce</h4>
+                  <p class="text-xs sm:text-sm text-charcoal-muted">Tocca il microfono e dì: <em>"Fammi da guida in italiano!"</em></p>
+                </div>
+              </div>
+            </div>
+            <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="min-h-[46px] bg-secondary text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform no-print">
+              <span class="material-symbols-outlined text-[20px]">smart_toy</span>
+              <span>Apri l'Assistente Gemini</span>
+            </a>
+          </div>
+        </details>
+      </section>
 
       <!-- ACCORDION PAGAMENTI -->
       <details class="group bg-paper-surface rounded-2xl border border-outline-soft shadow-sm overflow-hidden" open>
@@ -1173,24 +1280,34 @@
       </details>
 
       <!-- ACCORDION NUMERI UTILI -->
-      <details class="group bg-paper-surface rounded-2xl border border-outline-soft shadow-sm overflow-hidden">
+      <details class="group bg-paper-surface rounded-2xl border border-outline-soft shadow-sm overflow-hidden" open>
         <summary class="flex items-center justify-between p-4 sm:p-5 cursor-pointer select-none font-bold text-base sm:text-lg text-charcoal-soft hover:bg-paper-warm transition">
           <span class="flex items-center gap-3">
             <span class="material-symbols-outlined text-terracotta-deep text-[24px]">emergency</span>
-            <span>Numeri Utili & Assistenza</span>
+            <span>Numeri Utili & Assistenza Rapida</span>
           </span>
           <span class="material-symbols-outlined text-charcoal-muted text-[24px] group-open:rotate-180 transition-transform">expand_more</span>
         </summary>
         <div class="p-5 pt-2 border-t border-outline-soft text-base text-charcoal-soft space-y-3">
-          <div class="p-3.5 bg-paper-warm rounded-xl">
-            <p class="font-bold text-charcoal-soft">Ambasciata d'Italia a Praga</p>
-            <p class="text-sm text-charcoal-muted">Nerudova 20, Malá Strana</p>
-            <p class="text-sm font-mono font-bold text-primary mt-1">Tel: +420 233 080 111</p>
+          <div class="p-3.5 bg-paper-warm rounded-xl flex items-center justify-between gap-3">
+            <div>
+              <p class="font-bold text-charcoal-soft">Ambasciata d'Italia a Praga</p>
+              <p class="text-sm text-charcoal-muted">Nerudova 20, Malá Strana</p>
+              <p class="text-sm font-mono font-bold text-primary mt-0.5">Tel: +420 233 080 111</p>
+            </div>
+            <a href="tel:+420233080111" class="px-3.5 py-2 bg-primary text-white font-bold text-xs rounded-lg shadow-sm shrink-0 no-print">
+              Chiama
+            </a>
           </div>
-          <div class="p-3.5 bg-red-50 rounded-xl border border-red-200">
-            <p class="font-bold text-terracotta-deep">Numero Unico Europeo Emergenze</p>
-            <p class="text-2xl font-black text-terracotta-deep">112</p>
-            <p class="text-xs text-charcoal-muted">Polizia, Ambulanza (assistenza anche in italiano/inglese)</p>
+          <div class="p-3.5 bg-red-50 rounded-xl border border-red-200 flex items-center justify-between gap-3">
+            <div>
+              <p class="font-bold text-terracotta-deep">Numero Unico Europeo Emergenze</p>
+              <p class="text-2xl font-black text-terracotta-deep">112</p>
+              <p class="text-xs text-charcoal-muted">Polizia, Ambulanza (assistenza anche in italiano/inglese)</p>
+            </div>
+            <a href="tel:112" class="px-3.5 py-2 bg-terracotta-deep text-white font-bold text-xs rounded-lg shadow-sm shrink-0 no-print">
+              SOS 112
+            </a>
           </div>
         </div>
       </details>
@@ -1234,7 +1351,7 @@
       </details>
     </div>
 
-    <!-- LOVING SON SIGN-OFF NOTE (DA GOOGLE STITCH) -->
+    <!-- LOVING SON SIGN-OFF NOTE -->
     <div class="mt-4 mb-2 text-center flex flex-col items-center justify-center p-6 bg-paper-warm rounded-2xl border border-outline-soft">
       <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
         <span class="material-symbols-outlined text-[26px] fill">favorite</span>
@@ -1249,7 +1366,7 @@
 
   </main>
 
-  <!-- FOOTER FISSO IN BASSO CON ASSISTENZA & SOS RAPIDO (DA GOOGLE STITCH) -->
+  <!-- FOOTER FISSO IN BASSO CON ASSISTENZA & SOS RAPIDO -->
   <footer class="fixed bottom-0 left-0 right-0 z-50 bg-paper-warm/95 backdrop-blur-xl border-t border-outline-soft shadow-[0_-3px_14px_rgba(24,29,26,0.08)] pb-safe no-print">
     <div class="max-w-2xl mx-auto px-4 pt-2.5 pb-2 flex flex-col gap-1.5">
       <div class="flex items-center justify-between text-xs text-charcoal-muted font-bold px-1">
@@ -1281,7 +1398,7 @@
   </footer>
 
   <script>
-    // Gestione Tab con Scroll Fluido
+    // Gestione Tab con Scroll Immediato in Cima
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1300,7 +1417,9 @@
       if (tabId === 'g1' && window.tramMap) {
         setTimeout(() => window.tramMap.invalidateSize(), 150);
       }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Salto immediato in cima alla pagina per mostrare subito il nuovo giorno
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     // Gestione Dimensione Font per Ipovedenti / Mamma
@@ -1324,6 +1443,13 @@
           }
         }
       });
+    }
+
+    // Funzione Scarica / Salva PDF con espansione automatica di tutti i cassetti
+    function downloadPDF() {
+      // Espande tutti i details così il contenuto è interamente stampato
+      document.querySelectorAll('details').forEach(el => el.setAttribute('open', 'true'));
+      window.print();
     }
 
     // Inizializzazione Mappa Interattiva Tram 22
@@ -1391,7 +1517,7 @@
     });
 
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.0.6";
+    const CURRENT_APP_VERSION = "1.0.7";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
