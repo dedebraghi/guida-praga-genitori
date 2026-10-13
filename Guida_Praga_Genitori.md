@@ -24,7 +24,37 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 
 ---
 
-## Programma di Viaggio Giorno per Giorno
+## ⚡ Itinerario Rapido (Colpo d'Occhio 3 Giorni)
+
+### Giorno 1 (Martedì 27 Ottobre — Arrivo & Moldava)
+- **09:25:** Atterraggio PRG -> Uber diretto all'Hotel Páv (Křemencova 13).
+- **10:30:** Bagagli in deposito -> Passeggiata tranquilla in piano (Piazza Carlo / U Fleků).
+- **11:30 Pranzo:** **Café Louvre** *(Alt: U Medvídků / Ristorante Pagana)*.
+- **13:00 - 15:30 (Attesa camera):** Giro panoramico al caldo sul **Tram 22** *(Alt: Battello anticipato / Galleria Lucerna)*.
+- **15:30:** Check-in camera Hotel Páv & rinfrescata.
+- **17:00:** Crociera serale in battello coperto *(Molo 3 Prague Boats)* o passeggiata al tramonto.
+- **19:30 Cena:** **Birreria U Fleků** a 40m *(Alt: U Bubeníčků a 150m / Pizzeria Kmotra a 180m)*.
+
+### Giorno 2 (Mercoledì 28 Ottobre — Castello & Ghetto Ebraico ⭐)
+- **09:15:** **Tram 22** da Národní třída a *Pražský hrad* (si sale in tram, zero gradini!).
+- **09:30:** Castello di Praga, Cattedrale di San Vito e cortili reali.
+- **11:30:** Discesa a piedi via Nerudova -> Isola di Kampa -> **Ponte Carlo** (statua di San Giovanni Nepomuceno).
+- **13:00 Pranzo:** **U Parlamentu** *(Alt: V Kolkovně / Mistral Café)*.
+- **14:30:** **Quartiere Ebraico Josefov** (in piano): Sinagoga Spagnola & Antico Cimitero.
+- **17:00:** Piazza Città Vecchia & Orologio Astronomico (sfilata Apostoli).
+- **19:30 Cena:** **U Pinkasů** con Svíčková *(Alt: U Pravdů a 350m / Marina Ristorante sul battello)*.
+
+### Giorno 3 (Giovedì 29 Ottobre — Lungofiume & Rientro)
+- **09:30:** Colazione & Check-out Hotel Páv (valigie in deposito).
+- **10:00:** Casa Danzante (*Ginger e Fred*) a 5 min sul lungofiume.
+- **11:00:** Isola di Žofín tra i cigni & sosta al Café Slavia.
+- **12:30 Ultimo Pranzo:** **Café Slavia** *(Alt: U Bubeníčků a 150m / Super Tramp Coffee)*.
+- **14:15:** Ritiro valigie Hotel Páv e chiamata Uber/Bolt verso l'aeroporto.
+- **15:00:** Arrivo aeroporto (T2). Imbarco ore 16:35, volo Ryanair FR3527 ore 17:05 -> Bergamo ore 18:30.
+
+---
+
+## Programma di Viaggio Dettagliato Giorno per Giorno
 
 ### Giorno 1: Martedì 27 Ottobre (Arrivo & Moldava Rilassante)
 *Ritmo: Morbido. Recupero energie dalla sveglia all'alba.*

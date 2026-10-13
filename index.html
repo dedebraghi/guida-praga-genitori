@@ -136,18 +136,21 @@
 
   <!-- NAVIGATION TABS -->
   <nav class="max-w-2xl mx-auto px-4 mt-6 sticky top-2 z-40 no-print">
-    <div class="bg-stone-200/90 backdrop-blur-md p-1.5 rounded-2xl shadow flex gap-1 justify-between border border-stone-300">
-      <button onclick="switchTab('g1')" id="tab-btn-g1" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-white bg-stone-900 shadow">
-        Mar 27 Ott
+    <div class="bg-stone-200/90 backdrop-blur-md p-1 rounded-2xl shadow flex gap-1 justify-between border border-stone-300 text-center">
+      <button onclick="switchTab('g1')" id="tab-btn-g1" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-white bg-stone-900 shadow">
+        Mar 27
       </button>
-      <button onclick="switchTab('g2')" id="tab-btn-g2" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
-        Mer 28 Ott ⭐
+      <button onclick="switchTab('g2')" id="tab-btn-g2" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        Mer 28 ⭐
       </button>
-      <button onclick="switchTab('g3')" id="tab-btn-g3" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
-        Gio 29 Ott
+      <button onclick="switchTab('g3')" id="tab-btn-g3" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        Gio 29
       </button>
-      <button onclick="switchTab('info')" id="tab-btn-info" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
-        Consigli Utili
+      <button onclick="switchTab('rapido')" id="tab-btn-rapido" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        ⚡ Rapido
+      </button>
+      <button onclick="switchTab('info')" id="tab-btn-info" class="tab-btn flex-1 py-2 text-xs font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        💡 Consigli
       </button>
     </div>
   </nav>
@@ -922,6 +925,168 @@
     </div>
 
     <!-- ================================================================= -->
+    <!-- TAB: ITINERARIO RAPIDO (COLPO D'OCCHIO 3 GIORNI) -->
+    <!-- ================================================================= -->
+    <div id="tab-rapido" class="tab-content hidden space-y-5 print-page">
+      <div class="border-b border-stone-200 pb-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+            ⚡ Itinerario Rapido (Colpo d'Occhio)
+          </h2>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500 text-stone-950">
+            3 Giorni Riassunti
+          </span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+          Tutto il viaggio a colpo d'occhio: orari, tappe essenziali e posti per mangiare con le relative alternative.
+        </p>
+      </div>
+
+      <!-- GIORNO 1 CARD RAPIDA -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-stone-100">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-amber-800 tracking-wider">Giorno 1 • Martedì 27 Ottobre</span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Arrivo, Moldava & Cena sotto Casa</h3>
+          </div>
+          <button onclick="switchTab('g1')" class="text-xs font-bold text-amber-700 hover:text-amber-900 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+            Dettagli Giorno 1 →
+          </button>
+        </div>
+
+        <div class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">09:25</span>
+            <div><strong>Atterraggio a Praga (PRG)</strong>: uscita Terminal 2 Schengen, chiamata Uber/Bolt verso Hotel Páv.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">10:30</span>
+            <div><strong>Arrivo Hotel Páv</strong>: consegna valigie in deposito gratuito, sosta bagno e prima passeggiata dolce a Piazza Carlo e via Křemencova.</div>
+          </div>
+          <div class="flex items-start gap-2.5 p-2 bg-amber-50/60 rounded-xl border border-amber-200/60">
+            <span class="px-2 py-0.5 rounded bg-amber-200 font-mono font-bold text-amber-900 text-[11px] whitespace-nowrap">11:30</span>
+            <div class="text-xs">
+              <strong>Pranzo</strong>: <span class="font-bold text-stone-900">Café Louvre</span> (saloni storici, zuppe calde e strudel).  
+              <span class="text-stone-500 text-[11px] block mt-0.5"><em>Alt:</em> U Medvídků (birreria tradizionale) oppure Ristorante Pagana (italiano leggero a 200m).</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">13:00</span>
+            <div><strong>Attesa camera (Zero fatica)</strong>: Giro panoramico seduti al caldo sul <strong>Tram 22</strong> (gratis con carta d'identità) senza mai scendere. <em>(Alt: Battello anticipato alle 14 o Galleria Lucerna al coperto)</em>.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">15:30</span>
+            <div><strong>Camera pronta Hotel Páv</strong>: salita in camera, rinfrescata e relax.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">17:00</span>
+            <div><strong>Tramonto sulla Moldava</strong>: Crociera serale in battello coperto e riscaldato (Molo 3 Prague Boats) o passeggiata lungofiume.</div>
+          </div>
+          <div class="flex items-start gap-2.5 p-2 bg-amber-50/60 rounded-xl border border-amber-200/60">
+            <span class="px-2 py-0.5 rounded bg-amber-200 font-mono font-bold text-amber-900 text-[11px] whitespace-nowrap">19:30</span>
+            <div class="text-xs">
+              <strong>Cena</strong>: <span class="font-bold text-stone-900">Birreria U Fleků</span> (a soli 40 metri dall'hotel, gulasch e birra scura).  
+              <span class="text-stone-500 text-[11px] block mt-0.5"><em>Alt:</em> U Bubeníčků a 150m (trattoria calma) oppure Pizzeria Kmotra a 180m (forno a legna).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GIORNO 2 CARD RAPIDA -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border-2 border-amber-400/60 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-stone-100">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-amber-800 tracking-wider">Giorno 2 • Mercoledì 28 Ottobre ⭐</span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Castello in Discesa, Ponte Carlo & Ghetto</h3>
+          </div>
+          <button onclick="switchTab('g2')" class="text-xs font-bold text-amber-700 hover:text-amber-900 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+            Dettagli Giorno 2 →
+          </button>
+        </div>
+
+        <div class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-red-100 text-red-800 font-mono font-bold text-[11px] whitespace-nowrap">09:15</span>
+            <div><strong>Trucco Castello</strong>: si sale con il <strong>Tram 22</strong> da Národní třída fino a <em>Pražský hrad</em> (zero salite a piedi!).</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">09:30</span>
+            <div><strong>Castello di Praga & Cattedrale di San Vito</strong>: visita dei cortili reali in piano e belvedere panoramico.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">11:30</span>
+            <div><strong>Discesa a piedi verso il fiume</strong>: via Nerudova (tutta discesa) -> Isola di Kampa -> <strong>Ponte Carlo</strong> con la statua portafortuna di San Giovanni Nepomuceno.</div>
+          </div>
+          <div class="flex items-start gap-2.5 p-2 bg-amber-50/60 rounded-xl border border-amber-200/60">
+            <span class="px-2 py-0.5 rounded bg-amber-200 font-mono font-bold text-amber-900 text-[11px] whitespace-nowrap">13:00</span>
+            <div class="text-xs">
+              <strong>Pranzo</strong>: <span class="font-bold text-stone-900">U Parlamentu</span> (trattoria casalinga rapida, cotolette e gulasch a 2 min dal ponte).  
+              <span class="text-stone-500 text-[11px] block mt-0.5"><em>Alt:</em> V Kolkovně (cucina boema nel ghetto) oppure Mistral Café (bistrot luminoso e leggero).</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">14:30</span>
+            <div><strong>Quartiere Ebraico Josefov (In piano)</strong>: Sinagoga Spagnola dorata e Antico Cimitero Ebraico (leggenda del Golem con Gemini).</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">17:00</span>
+            <div><strong>Piazza Città Vecchia</strong>: attesa dello scoccare dell'ora per la sfilata degli Apostoli dell'Orologio Astronomico.</div>
+          </div>
+          <div class="flex items-start gap-2.5 p-2 bg-amber-50/60 rounded-xl border border-amber-200/60">
+            <span class="px-2 py-0.5 rounded bg-amber-200 font-mono font-bold text-amber-900 text-[11px] whitespace-nowrap">19:30</span>
+            <div class="text-xs">
+              <strong>Cena</strong>: <span class="font-bold text-stone-900">U Pinkasů</span> (la mitica Svíčková di manzo con crema di carote e panna acida dal 1843).  
+              <span class="text-stone-500 text-[11px] block mt-0.5"><em>Alt:</em> U Pravdů a 350m dall'hotel (costolette al miele) oppure Marina Ristorante (battello panoramico sull'acqua).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GIORNO 3 CARD RAPIDA -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-stone-100">
+          <div>
+            <span class="text-xs font-extrabold uppercase text-amber-800 tracking-wider">Giorno 3 • Giovedì 29 Ottobre</span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Casa Danzante, Isola Žofín & Volo Ritorno</h3>
+          </div>
+          <button onclick="switchTab('g3')" class="text-xs font-bold text-amber-700 hover:text-amber-900 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+            Dettagli Giorno 3 →
+          </button>
+        </div>
+
+        <div class="space-y-2.5 text-xs sm:text-sm text-stone-700">
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">09:30</span>
+            <div><strong>Colazione & Check-out Hotel Páv</strong>: valigie lasciate in custodia alla reception.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">10:00</span>
+            <div><strong>Casa Danzante (Ginger & Fred)</strong>: a 5 minuti a piedi in piano verso il lungofiume.</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">11:00</span>
+            <div><strong>Isola Slovanský (Žofín)</strong>: passeggiata tra giardini e cigni, poi caffè al panoramico Café Slavia.</div>
+          </div>
+          <div class="flex items-start gap-2.5 p-2 bg-amber-50/60 rounded-xl border border-amber-200/60">
+            <span class="px-2 py-0.5 rounded bg-amber-200 font-mono font-bold text-amber-900 text-[11px] whitespace-nowrap">12:30</span>
+            <div class="text-xs">
+              <strong>Ultimo Pranzo</strong>: <span class="font-bold text-stone-900">Café Slavia</span> (cotoletta praghese e vista spettacolare sul fiume).  
+              <span class="text-stone-500 text-[11px] block mt-0.5"><em>Alt:</em> U Bubeníčků a 150m (zero ansia per i tempi) oppure Super Tramp Coffee (toast e quiche).</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-amber-200 text-amber-950 font-mono font-bold text-[11px] whitespace-nowrap">14:15</span>
+            <div><strong>Ritiro valigie Hotel Páv & Uber</strong>: partenza per l'aeroporto (tempo tragitto ~25-30 min).</div>
+          </div>
+          <div class="flex items-start gap-2.5">
+            <span class="px-2 py-0.5 rounded bg-stone-100 font-mono font-bold text-stone-800 text-[11px] whitespace-nowrap">15:00</span>
+            <div><strong>Arrivo Aeroporto Václav Havel (T2)</strong>: controlli di sicurezza con tutta calma. Imbarco ore 16:35, decollo ore 17:05 con arrivo a Bergamo alle 18:30.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
     <!-- TAB: CONSIGLI UTILI & EMERGENZE -->
     <!-- ================================================================= -->
     <div id="tab-info" class="tab-content hidden space-y-5 print-page">
@@ -1101,7 +1266,7 @@
     });
 
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.0.3";
+    const CURRENT_APP_VERSION = "1.0.4";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
