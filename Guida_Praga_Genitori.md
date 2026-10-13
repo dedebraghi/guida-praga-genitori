@@ -33,7 +33,10 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 - **Ore 10:30 – 11:30 (Cosa fare prima di pranzo):**
   - Deposito bagagli gratuito alla reception dell'Hotel Páv, uso dei servizi dell'hotel e rinfrescata post-volo.
   - Passeggiata dolce di 30 minuti in piano: ammirate l'antica facciata con l'orologio della birreria *U Fleků* (a 30m nella stessa via) e le panchine alberate di *Karlovo náměstí* (Piazza Carlo) a 200m per prendere la prima aria di Praga.
-- **Ore 11:30:** Pranzo rilassato allo storico **Café Louvre** (Národní 22), frequentato da Kafka ed Einstein. Zuppa calda o cioccolata con strudel.
+- **Ore 11:30 – 12:45: Pranzo dopo il volo (3 alternative a scelta a meno di 5 min dall'hotel):**
+  - *Opzione 1 (Grand Café Storico):* **[Café Louvre](https://www.google.com/maps/search/?api=1&query=Cafe+Louvre+Narodni+22+Prague)** (Národní 22, 4 min a piedi). Saloni eleganti liberty, zuppe calde tradizionali boeme, quiche e strudel di mele caldo.
+  - *Opzione 2 (Birreria Storica dal 1466):* **[Restaurace U Medvídků](https://www.google.com/maps/search/?api=1&query=U+Medvidku+Na+Perstyne+7+Prague)** (Na Perštýně 7, 5 min a piedi). Gulasch servito nel pane, maiale arrosto e canederli senza caos.
+  - *Opzione 3 (Italiano Delicato di Famiglia):* **[Ristorante Pagana](https://www.google.com/maps/search/?api=1&query=Ristorante+Pagana+Vladislavova+17+Prague)** (Vladislavova 17, 3 min a piedi, 200m). Pasta fresca e risotti leggeri di altissima qualità gestito da una famiglia.
 - **Ore 13:00 – 15:30 (In attesa della camera alle 15:30 — Alternative a Zero Fatica):**
   - *Opzione 1 (Consigliatissima - Sightseeing Tram 22 Gratis):* Si sale sul mitico Tram 22 alla fermata *Národní třída* (a 200m dall'hotel), ci si siede al finestrino e ci si gode il giro panoramico più bello d'Europa al caldo attraverso il fiume, Malá Strana e il Castello, tornando indietro senza fare un passo a piedi. [Posizione Fermata Salita Národní třída su Google Maps](https://www.google.com/maps/search/?api=1&query=Tram+stop+Národní+třída+Prague).
   - *Opzione 2 (Battello Pomeridiano Anticipato):* Crociera fluviale di 1 ora sulla Moldava al coperto con tè o caffè caldo a bordo. [Sito Ufficiale Biglietti & Orari Prague Boats](https://www.prague-boats.cz/one-hour-river-cruise).
@@ -41,7 +44,10 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 - **Ore 15:30 – 16:30:** Consegna chiavi della camera all'Hotel Páv, salita in stanza e rinfrescata.
 - **Ore 17:00:** Passeggiata sul lungofiume al tramonto o **Crociera in Battello serale** con le prime luci accese sul Castello e Ponte Carlo.
   - *Biglietti & Orari:* [Sito Ufficiale Prague Boats per orari e acquisto online](https://www.prague-boats.cz/one-hour-river-cruise) oppure direttamente al [Molo 3 Dvořákovo nábřeží su Maps](https://www.google.com/maps/search/?api=1&query=Prague+Boats+pier+3+Dvorakovo+nabrezi+Prague). Costo ~14–17 € (350–420 CZK), pagamento con carta contactless al chiosco. Chiedere *"Two tickets for 1-hour cruise, please"*. Bar riscaldato a bordo.
-- **Ore 19:30:** Cena alla storica fabbrica di birra **U Fleků** (del 1499), situata **esattamente a 40 metri dall'hotel** nella stessa via Křemencova. Gulash con canederli e birra scura artigianale.
+- **Ore 19:30 – Cena della prima sera (3 alternative a meno di 2 min dall'hotel):**
+  - *Opzione 1 (La più famosa birreria di Praga):* **[U Fleků](https://www.google.com/maps/search/?api=1&query=U+Fleku+Kremencova+11+Prague)** (Křemencova 11, a 40 metri dall'hotel!). Fabbrica dal 1499, stufato di gulasch con canederli e birra scura artigianale unica.
+  - *Opzione 2 (Trattoria tipica più calma e autentica):* **[Restaurace U Bubeníčků](https://www.google.com/maps/search/?api=1&query=Restaurace+U+Bubenicku+Myslikova+8+Prague)** (Myslíkova 8, a 150m dall'hotel). Ambiente tranquillo di quartiere, stinco croccante, anatra e zero chiasso.
+  - *Opzione 3 (Forno a legna storico):* **[Pizzeria Kmotra](https://www.google.com/maps/search/?api=1&query=Pizzeria+Kmotra+V+Jircharich+12+Prague)** (V Jirchářích 12, a 180m). Nei sotterranei a volta, ottima pizza sottile e insalate fresche per una cena leggera.
 
 ---
 
@@ -54,16 +60,20 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 - **Discesa verso Malá Strana:** Dalla porta del castello scendete a piedi lungo via Nerudova (tutta discesa tra palazzi barocchi).
 - **Isola di Kampa & Ponte Carlo:** Ammirate i canali della "piccola Venezia" e salite sul Ponte Carlo. Toccate la targa dorata di **San Giovanni Nepomuceno** per assicurarvi il ritorno a Praga!
 
-#### Pranzo
-- Sosta rilassata a Staré Město da **Lokál Dlouhááá** o da **U Parlamentu** (Valentinská 8): piatti caldi casalinghi, sedie comode e ottima birra fresca.
+#### Pranzo (Ore 13:00 – Tra Ponte Carlo e Quartiere Ebraico, 3 alternative):
+- *Opzione 1 (Trattoria tipica fresca e rapida):* **[U Parlamentu](https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Valentinska+8+Prague)** (Valentinská 8). Piatti caldi boemi veloci, cotolette dorate, sedie comode e ottima Pilsner.
+- *Opzione 2 (Cucina boema nel ghetto):* **[V Kolkovně](https://www.google.com/maps/search/?api=1&query=V+Kolkovne+restaurant+Prague)** (V Kolkovně 8). In palazzo liberty, anatra arrosto con canederli e zuppa ai funghi.
+- *Opzione 3 (Bistrot moderno e leggero):* **[Mistral Café](https://www.google.com/maps/search/?api=1&query=Mistral+Cafe+Valentinska+11+Prague)** (Valentinská 11). Ambiente luminoso, vellutate calde, pasta fresca fatta a mano e insalate salutari.
 
 #### Pomeriggio: Il Quartiere Ebraico (Josefov) & Orologio Astronomico
 - **Josefov:** Tappa pianeggiante e raccolta a 3 minuti dal ristorante. Visita della splendida **Sinagoga Spagnola** (interni moreschi d'oro) e dell'affascinante **Antico Cimitero Ebraico**.
 - *Curiosità con Gemini:* Fatevi raccontare la leggenda del Golem e del rabbino Loew!
 - **Piazza della Città Vecchia (Staroměstské náměstí):** Posizionatevi davanti alla Torre del Municipio qualche minuto prima dello scoccare dell'ora (es. ore 17:00 o 18:00) per ammirare la sfilata meccanica degli Apostoli dell'Orologio Astronomico.
 
-#### Sera
-- **Ore 19:30:** Cena tradizionale da **U Pinkasů** (Jungmannovo náměstí 16, a 7 minuti a piedi dall'hotel). Assaggiate la *Svíčková* (manzo in crema di verdure con mirtilli e panna acida).
+#### Sera: Cena (Ore 19:30 – 3 alternative):
+- *Opzione 1 (Il tempio della Pilsner dal 1843):* **[U Pinkasů](https://www.google.com/maps/search/?api=1&query=U+Pinkasu+Jungmannovo+namesti+16+Prague)** (Jungmannovo náměstí 16, a 7 min dall'hotel). La migliore *Svíčková* della città (manzo tenerissimo con crema di carote, panna acida e mirtilli).
+- *Opzione 2 (Trattoria casalinga a 5 min da casa):* **[Restaurace U Pravdů](https://www.google.com/maps/search/?api=1&query=Restaurace+U+Pravdu+Zitna+15+Prague)** (Žitná 15, a 350m dall'hotel). Costolette al miele, anatra arrosto e atmosfera familiare.
+- *Opzione 3 (Battello panoramico sul fiume):* **[Marina Ristorante](https://www.google.com/maps/search/?api=1&query=Marina+Ristorante+Alsovo+nabrezi+Prague)** (Alšovo nábřeží). Battello ormeggiato sulla Moldava con enormi vetrate vista Castello illuminato, piatti di pesce e pasta.
 
 ---
 
@@ -73,7 +83,10 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 - **Ore 09:30:** Colazione e check-out, lasciando i bagagli al deposito dell'Hotel Páv.
 - **Ore 10:00:** Passeggiata di 5 minuti a piedi in piano verso il fiume: ammirate l'architettura della **Casa Danzante** (*"Ginger e Fred"*).
 - **Ore 11:00:** Passeggiata sull'**Isola Slovanský (Žofín)** tra giardini e cigni sulla Moldava, e sosta al panoramico **Café Slavia** per un caffè vista fiume.
-- **Ore 12:30:** Pranzo rilassato nei dintorni dell'hotel (es. *Restaurace U Bubeníčků* o bis da *U Fleků*).
+- **Ore 12:30 – Ultimo pranzo prima dell'aeroporto (3 alternative a zero stress):**
+  - *Opzione 1 (Caffè storico con vetrate sul fiume):* **[Café Slavia](https://www.google.com/maps/search/?api=1&query=Cafe+Slavia+Smetanovo+nabrezi+1+Prague)** (Smetanovo nábřeží 1, a 5 min dall'hotel). Cotoletta praghese dorata con patate e vista Castello.
+  - *Opzione 2 (Comodissimo a 100m dall'hotel):* **[Restaurace U Bubeníčků](https://www.google.com/maps/search/?api=1&query=Restaurace+U+Bubenicku+Myslikova+8+Prague)** (Myslíkova 8). Zero pensieri per i tempi: siete a 2 minuti a piedi per ritirare i bagagli alle 14:15.
+  - *Opzione 3 (Bistrot veloce e leggero in corte silenziosa):* **[Super Tramp Coffee](https://www.google.com/maps/search/?api=1&query=Super+Tramp+Coffee+Opatovicka+160+Prague)** (Opatovická 160, a 200m). Toast farciti, quiche salate e pasticceria per un pasto leggero prima del volo.
 - **Ore 14:15:** Ritiro valigie all'Hotel Páv e chiamata Uber/Bolt per l'aeroporto.
 - **Ore 14:45 – 15:00:** Arrivo all'Aeroporto Václav Havel (Terminal 2).
 - **Ore 17:05:** Decollo volo FR3527 con arrivo a Bergamo alle 18:30.

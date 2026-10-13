@@ -216,25 +216,64 @@
         </div>
       </div>
 
-      <!-- TAPPA 2: CHECK-IN & PRANZO LEGGERO -->
-      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
-        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
-          Ore 11:30 – 12:45: Pranzo & Pausa Storica
-        </span>
-        <h3 class="text-base sm:text-lg font-bold text-stone-900">Sosta al Café Louvre (Frequentato da Kafka ed Einstein)</h3>
-        <p class="text-xs sm:text-sm text-stone-600 mt-2">
-          A piedi in soli <strong>4 minuti in piano</strong> dall'hotel arrivate allo storico <strong>Café Louvre</strong> (aperto nel 1902). Grandi saloni liberty rosa pastello, camerieri eleganti e atmosfera d'altri tempi.
-        </p>
-        <div class="mt-3 p-3 bg-amber-50/70 border border-amber-200 rounded-xl text-xs text-stone-700">
-          ☕ <strong>Cosa prendere</strong>: Zuppa calda tradizionale boema (riscaldante dopo il volo), oppure strudel di mele caldo con crema alla vaniglia e cioccolata densa.
+      <!-- TAPPA 2: CHECK-IN & PRANZO (3 ALTERNATIVE A SCELTA) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3.5">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 11:30 – 12:45: Pranzo dopo il Volo
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Dove Pranzare (Scegliete l'Atmosfera che Preferite!)</h3>
+          </div>
+          <span class="text-xl">🍽️</span>
         </div>
-        <div class="mt-3 flex gap-2">
-          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Louvre+Narodni+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
-            📍 Apri Café Louvre su Maps
-          </a>
-          <a href="https://gemini.google.com/app" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
-            🤖 Chiedi a Gemini curiosità su Kafka
-          </a>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Tutti a meno di 5 minuti a piedi in piano dall'Hotel Páv. Ecco 3 opzioni con sapori diversi:
+        </p>
+
+        <!-- OPZIONE 1 LOUVRE -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">☕ 1. Café Louvre (Grand Café Liberty Storico)</span>
+            <span class="text-[10px] bg-amber-200 text-amber-900 font-semibold px-2 py-0.5 rounded-full">Consigliato</span>
+          </div>
+          <p class="text-stone-700">Frequentato da Kafka ed Einstein. Saloni eleganti rosa pastello, camerieri in livrea, zuppe tradizionali calde (ottime per riprendersi dal volo) e strudel appena sfornato.</p>
+          <div class="pt-1 flex gap-2">
+            <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Louvre+Narodni+22+Prague" target="_blank" class="flex-1 py-1.5 px-2.5 text-center text-xs font-bold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa Café Louvre (4 min)
+            </a>
+            <a href="https://gemini.google.com/app" target="_blank" class="py-1.5 px-2.5 text-center text-xs font-semibold bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+              🤖 Chiedi a Gemini
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 2 U MEDVIDKU -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍺 2. Restaurace U Medvídků (Birreria Storica dal 1466)</span>
+            <span class="text-[10px] bg-stone-200 text-stone-700 font-semibold px-2 py-0.5 rounded-full">Tradizionale Boemo</span>
+          </div>
+          <p class="text-stone-700">Per chi vuole subito la tipica trattoria ceca: gulasch caldo servito nella pagnotta di pane scavata, maiale arrosto e canederli senza il chiasso serale.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=U+Medvidku+Na+Perstyne+7+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa U Medvídků (5 min dall'hotel)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 3 RISTORANTE PAGANA -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍝 3. Ristorante Pagana (Italiano di Famiglia & Delicato)</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">Cucina Italiana</span>
+          </div>
+          <p class="text-stone-700">Se preferite iniziare con un piatto di pasta leggera o un risotto genuino: ristorante italiano premiato gestito da una deliziosa famiglia, a soli 200m dall'albergo.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Ristorante+Pagana+Vladislavova+17+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa Ristorante Pagana (3 min dall'hotel)
+            </a>
+          </div>
         </div>
       </div>
 
@@ -414,27 +453,61 @@
         </div>
       </div>
 
-      <!-- TAPPA 4: CENA A 30 METRI DA CASA -->
-      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+      <!-- TAPPA 4: CENA (3 ALTERNATIVE A SCELTA SOTTO L'HOTEL) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3.5">
         <div class="flex items-start justify-between gap-2">
           <div>
             <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
-              Ore 19:30 – Cena Tipica Boema
+              Ore 19:30 – Cena della Prima Sera
             </span>
-            <h3 class="text-base sm:text-lg font-bold text-stone-900">Birreria Storica U Fleků (Anno 1499)</h3>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Dove Cenare (Tutti a Meno di 2 Minuti dall'Hotel!)</h3>
           </div>
           <span class="text-xl">🍺</span>
         </div>
-        <p class="text-xs sm:text-sm text-stone-600 mt-2">
-          La più celebre e antica fabbrica di birra di Praga si trova <strong>esattamente nella stessa via del vostro albergo (Křemencova)</strong>, a soli 40 metri a piedi! Tavoli di legno massiccio, volte gotiche e camerieri con vassoi di birra scura prodotta in loco.
+        <p class="text-xs sm:text-sm text-stone-600">
+          Nessuna fatica serale: i ristoranti sono letteralmente attorno all'albergo, così dopo cena siete a letto in due minuti.
         </p>
-        <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-stone-800">
-          🍖 <strong>Cosa ordinare</strong>: <em>Guláš s knedlíky</em> (stufato di manzo tenerissimo con canederli di pane soffici) oppure arrosto di maiale con crauti, accompagnato dalla loro birra scura al caramello (Flekovský ležák).
+
+        <!-- OPZIONE 1 U FLEKU -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍻 1. Birreria Storica U Fleků (Anno 1499 — A 40m dall'hotel!)</span>
+            <span class="text-[10px] bg-amber-200 text-amber-900 font-semibold px-2 py-0.5 rounded-full">Iconico</span>
+          </div>
+          <p class="text-stone-700">La più celebre fabbrica di birra di Praga, esattamente nella stessa via del vostro albergo! Tavoli di legno massiccio, volte gotiche, stufato di manzo con canederli e la mitica birra scura artigianale.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=U+Fleku+Kremencova+11+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa U Fleků (40 metri dall'hotel)
+            </a>
+          </div>
         </div>
-        <div class="mt-3 flex gap-2">
-          <a href="https://www.google.com/maps/search/?api=1&query=U+Fleku+Kremencova+11+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
-            📍 Apri U Fleků su Maps (40m dall'hotel)
-          </a>
+
+        <!-- OPZIONE 2 U BUBENICKU -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍖 2. Restaurace U Bubeníčků (Trattoria Tipica più Calma)</span>
+            <span class="text-[10px] bg-stone-200 text-stone-700 font-semibold px-2 py-0.5 rounded-full">Tranquillo & Autentico</span>
+          </div>
+          <p class="text-stone-700">Se preferite un ambiente più tranquillo e silenzioso rispetto a U Fleků: ottima cucina boema di quartiere, stinco croccante, anatra arrosto con cavolo rosso e prezzi bassi.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Restaurace+U+Bubenicku+Myslikova+8+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa U Bubeníčků (150m dall'hotel)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 3 PIZZERIA KMOTRA -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍕 3. Pizzeria Kmotra (Forno a Legna Storico)</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">Pizza & Leggero</span>
+          </div>
+          <p class="text-stone-700">La più antica e rinomata pizzeria a legna di Praga, nei suggestivi sotterranei in mattoni. Perfetta se avete voglia di una pizza sottile e digeribile o di una fresca insalatona mista.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Pizzeria+Kmotra+V+Jircharich+12+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa Pizzeria Kmotra (180m dall'hotel)
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -535,16 +608,62 @@
         </div>
       </div>
 
-      <!-- PRANZO CONSIGLIATO -->
-      <div class="p-3.5 bg-stone-100 border border-stone-300 rounded-2xl flex items-center justify-between gap-3">
-        <div>
-          <p class="text-xs font-bold text-stone-800 uppercase">Ore 13:00 – Sosta Pranzo Consigliata</p>
-          <p class="text-sm font-bold text-stone-900">Ristorante Lokál Dlouhááá oppure U Parlamentu</p>
-          <p class="text-xs text-stone-600">Cucina casalinga, birra spillata perfetta e sedie comodissime per riposare le gambe.</p>
+      <!-- PRANZO CONSIGLIATO (3 ALTERNATIVE A SCELTA TRA IL PONTE E IL GHETTO) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3.5">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 13:00 – 14:15: Pausa Pranzo Rilassante
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Dove Pranzare (Tra Ponte Carlo e Quartiere Ebraico)</h3>
+          </div>
+          <span class="text-xl">🍲</span>
         </div>
-        <a href="https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Valentinska+Prague" target="_blank" class="px-3 py-1.5 bg-stone-900 text-white rounded-xl text-xs font-semibold whitespace-nowrap">
-          📍 Mappa
-        </a>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Subito dopo aver attraversato il Ponte Carlo vi fermate a mangiare prima di iniziare la passeggiata in piano a Josefov. Ecco 3 stili diversi:
+        </p>
+
+        <!-- OPZIONE 1 U PARLAMENTU -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍺 1. U Parlamentu (Trattoria Tipica Fresca & Rapida)</span>
+            <span class="text-[10px] bg-amber-200 text-amber-900 font-semibold px-2 py-0.5 rounded-full">Consigliato</span>
+          </div>
+          <p class="text-stone-700">A soli 2 minuti dal Ponte Carlo: piatti caldi casalinghi veloci (gulasch, cotolette dorate, formaggio fritto <em>smažený sýr</em>), sedie molto comode e servizio cordiale.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Valentinska+8+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa U Parlamentu (Valentinská 8)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 2 V KOLKOVNE -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🦆 2. V Kolkovně (Cucina Boema nel Cuore di Josefov)</span>
+            <span class="text-[10px] bg-stone-200 text-stone-700 font-semibold px-2 py-0.5 rounded-full">Storico & Ricco</span>
+          </div>
+          <p class="text-stone-700">Elegante locale storico in un palazzo liberty del ghetto ebraico: rinomata anatra arrosto croccante con canederli, zuppa ai funghi di bosco (<em>kulajda</em>) e insalate miste.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=V+Kolkovne+restaurant+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa V Kolkovně (a 1 min dalla Sinagoga)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 3 MISTRAL CAFE -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🥗 3. Mistral Café (Bistrot Luminoso, Rilassante & Leggero)</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">Leggero & Salutare</span>
+          </div>
+          <p class="text-stone-700">Se volete riposarvi dalla carne e dal cibo pesante: ambiente rilassante e luminoso con piante, vellutate calde del giorno, pasta fresca fatta a mano, risotti e squisite torte artigianali.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Mistral+Cafe+Valentinska+11+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa Mistral Café (Valentinská 11)
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- TAPPA 3: IL QUARTIERE EBRAICO (JOSEFOV) -->
@@ -610,22 +729,61 @@
         </div>
       </div>
 
-      <!-- CENA SERA 2 -->
-      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
-        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
-          Ore 19:30 – Cena Tipica della Tradizione
-        </span>
-        <h3 class="text-base sm:text-lg font-bold text-stone-900">U Pinkasů (Fondata nel 1843)</h3>
-        <p class="text-xs sm:text-sm text-stone-600 mt-2">
-          È il locale storico dove per la prima volta nel 1843 fu servita la Pilsner Urquell a Praga. Atmosfera autentica, camerieri storici, tavoli in legno e piatti boemi eccellenti.
+      <!-- CENA SERA 2 (3 ALTERNATIVE A SCELTA) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3.5">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+              Ore 19:30 – Cena della Seconda Sera
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Dove Cenare (Dalla Tradizione al Battello Panoramico)</h3>
+          </div>
+          <span class="text-xl">🥩</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Dopo la giornata intensa tra Castello e Ghetto, ecco 3 ottime idee per la cena:
         </p>
-        <p class="text-xs text-amber-900 font-semibold mt-1.5">
-          🍖 Piatto top: <em>Svíčková na smetaně</em> (filetto di manzo con crema di verdure caramellate, panna acida, mirtilli rossi e canederli).
-        </p>
-        <div class="mt-3">
-          <a href="https://www.google.com/maps/search/?api=1&query=U+Pinkasu+Jungmannovo+namesti+Prague" target="_blank" class="block text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
-            📍 Mappa U Pinkasů (a 7 min a piedi dall'hotel)
-          </a>
+
+        <!-- OPZIONE 1 U PINKASU -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">👑 1. U Pinkasů (Il Tempio della Pilsner dal 1843)</span>
+            <span class="text-[10px] bg-amber-200 text-amber-900 font-semibold px-2 py-0.5 rounded-full">Consigliato</span>
+          </div>
+          <p class="text-stone-700">Locale storico mitico dove nacque la tradizione della Pilsner. Famoso per la migliore <em>Svíčková na smetaně</em> di Praga (filetto di manzo morbidissimo con crema vellutata di carote e panna acida, mirtilli e canederli).</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=U+Pinkasu+Jungmannovo+namesti+16+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa U Pinkasů (a 7 min dall'hotel)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 2 U PRAVDU -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍖 2. Restaurace U Pravdů (Trattoria Tipica Intima a 5 min)</span>
+            <span class="text-[10px] bg-stone-200 text-stone-700 font-semibold px-2 py-0.5 rounded-full">Casalingo & Caldo</span>
+          </div>
+          <p class="text-stone-700">A soli 350m dall'Hotel Páv: ambiente accogliente in legno, costolette al forno con miele e senape, anatra arrosto con cavolo rosso e ottimi dolci della casa.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Restaurace+U+Pravdu+Zitna+15+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa U Pravdů (Žitná 15)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 3 MARINA RISTORANTE -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">✨ 3. Marina Ristorante (Battello Panoramico Vista Castello)</span>
+            <span class="text-[10px] bg-blue-100 text-blue-800 font-semibold px-2 py-0.5 rounded-full">Pesce & Vista Notturna</span>
+          </div>
+          <p class="text-stone-700">Battello panoramico fermo sull'acqua con grandi vetrate vista Castello illuminato e Ponte Carlo. Se volete cambiare genere: ottimi piatti di pesce, pasta e atmosfera fiabesca.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Marina+Ristorante+Alsovo+nabrezi+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa Marina Ristorante (Alšovo nábřeží)
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -692,15 +850,62 @@
         </div>
       </div>
 
-      <!-- TAPPA 3: PRANZO TRANQUILLO -->
-      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
-        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
-          Ore 12:45 – Ultimo Pranzo Praghese
-        </span>
-        <h3 class="text-base sm:text-lg font-bold text-stone-900">Pranzo a 100 metri dall'hotel</h3>
-        <p class="text-xs sm:text-sm text-stone-600 mt-2">
-          Pranzo rilassato in uno dei ristorantini attorno a Křemencova (es. <em>Restaurace U Bubeníčků</em> o una seconda sosta da U Fleků per chiudere in bellezza).
+      <!-- TAPPA 3: ULTIMO PRANZO (3 ALTERNATIVE A SCELTA PRIMA DEL TAXI) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3.5">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 12:30 – 13:45: Ultimo Pranzo Praghese
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Dove Pranzare (A Zero Stress per il Volo)</h3>
+          </div>
+          <span class="text-xl">🥪</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Tutti a brevissima distanza dall'Hotel Páv, così alle 14:15 siete già pronti per ritirare i bagagli e salire su Uber per l'aeroporto:
         </p>
+
+        <!-- OPZIONE 1 CAFE SLAVIA -->
+        <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🏰 1. Café Slavia (Caffè Storico Vista Fiume & Castello)</span>
+            <span class="text-[10px] bg-amber-200 text-amber-900 font-semibold px-2 py-0.5 rounded-full">Panoramico</span>
+          </div>
+          <p class="text-stone-700">A 5 minuti a piedi dall'hotel sul lungofiume: vista spettacolare sulle acque della Moldava e sul Castello. Ottima cotoletta praghese dorata (<em>řízek</em>) con patate, insalate e torte classiche.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Slavia+Smetanovo+nabrezi+1+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa Café Slavia (Smetanovo nábřeží 1)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 2 U BUBENICKU -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🍲 2. Restaurace U Bubeníčků (Comodissimo a 100m dall'Hotel)</span>
+            <span class="text-[10px] bg-stone-200 text-stone-700 font-semibold px-2 py-0.5 rounded-full">Zero Ansia Tempi</span>
+          </div>
+          <p class="text-stone-700">Se volete mangiare sereni senza guardare l'orologio: a 150 metri dalla porta dell'albergo. Zuppe fumanti, gulash, piatti veloci e alle 14:15 siete già alla reception per i bagagli.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Restaurace+U+Bubenicku+Myslikova+8+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa U Bubeníčků (Myslíkova 8)
+            </a>
+          </div>
+        </div>
+
+        <!-- OPZIONE 3 BISTROT SUPER TRAMP -->
+        <div class="p-3 bg-stone-50 border border-stone-200 rounded-xl space-y-1.5 text-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-stone-900 text-xs sm:text-sm">🥐 3. Super Tramp Coffee / Bistrot Leggero (200m)</span>
+            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-semibold px-2 py-0.5 rounded-full">Veloce & Leggero</span>
+          </div>
+          <p class="text-stone-700">Nascosto in una corte alberata silenziosa a 200m dall'hotel: quiche calde salate, toast farciti, lievitati freschi e caffè perfetto per chi vuole un pranzo leggero prima di volare.</p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Super+Tramp+Coffee+Opatovicka+160+Prague" target="_blank" class="inline-block py-1.5 px-3 text-xs font-bold bg-stone-800 text-white rounded-lg hover:bg-stone-700">
+              📍 Mappa Super Tramp (Opatovická 160)
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- CRONOPROGRAMMA RIENTRO -->
@@ -896,7 +1101,7 @@
     });
 
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.0.2";
+    const CURRENT_APP_VERSION = "1.0.3";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
