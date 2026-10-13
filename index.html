@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Praga Senza Pensieri | Guida di Viaggio per Mamma e Papà</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS & JS per Mappa Interattiva del Tram -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            bohemia: {
+              50: '#fdf8f4',
+              100: '#faede2',
+              200: '#f4dac4',
+              500: '#b8621b',
+              600: '#9c4d13',
+              800: '#5c2d0c',
+              900: '#381a07',
+            },
+            praguegold: '#d4af37',
+            cobble: '#262626'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      -webkit-tap-highlight-color: transparent;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .print-page { page-break-after: always; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .card-shadow { box-shadow: none !important; border: 1px solid #ddd !important; }
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased font-sans selection:bg-amber-200">
+
+  <!-- TOP HEADER -->
+  <header class="bg-gradient-to-r from-stone-900 via-stone-800 to-amber-950 text-white pt-6 pb-8 px-4 sm:px-6 shadow-lg border-b border-amber-500/30">
+    <div class="max-w-2xl mx-auto">
+      <div class="flex items-center justify-between gap-3 mb-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          ✨ Viaggio 27 – 29 Ottobre
+        </span>
+        <button onclick="window.print()" class="no-print inline-flex items-center gap-1.5 text-xs font-medium bg-white/10 hover:bg-white/20 active:scale-95 transition px-3 py-1.5 rounded-lg border border-white/20">
+          🖨️ Stampa / Salva PDF
+        </button>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-amber-100">
+        Praga Senza Pensieri
+      </h1>
+      <p class="mt-1 text-sm sm:text-base text-stone-300">
+        La guida rilassata creata su misura per mamma e papà. Zero corse, pause frequenti e spiegazioni con Gemini.
+      </p>
+
+      <!-- GOLD BADGE OVER 65 -->
+      <div class="mt-4 p-3.5 bg-amber-500/15 border border-amber-400/40 rounded-xl flex items-start gap-3">
+        <span class="text-2xl">🎟️</span>
+        <div class="text-xs sm:text-sm">
+          <p class="font-bold text-amber-200 uppercase tracking-wide">Regola d'oro Trasporti (Over 65)</p>
+          <p class="text-stone-200 mt-0.5">
+            A Praga <strong class="text-white underline">NON pagate nessun biglietto</strong> su metro, tram e bus urbani! Viaggiate <strong>GRATIS al 100%</strong>: basta avere in borsa la Carta d'Identità o Passaporto con la data di nascita se c'è un controllo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK HOTEL & FLIGHTS BAR -->
+  <section class="max-w-2xl mx-auto px-4 -mt-4">
+    <div class="bg-white rounded-2xl p-4 shadow-md border border-stone-200 flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">
+          🏨
+        </div>
+        <div>
+          <p class="text-xs text-stone-500 font-semibold uppercase">Il Vostro Albergo</p>
+          <p class="text-sm font-bold text-stone-900">Hotel Páv — 3 Stelle</p>
+          <p class="text-xs text-stone-600">Křemencova 13, Nové Město (Praga 1)</p>
+        </div>
+      </div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Pav+Kremencova+13+Prague" target="_blank" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition active:scale-95 text-center">
+        📍 Mappa Hotel
+      </a>
+    </div>
+  </section>
+
+  <!-- GEMINI TUTORIAL BANNER (COME USARE LA FOTOCAMERA) -->
+  <section class="max-w-2xl mx-auto px-4 mt-6 no-print">
+    <div class="bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 text-white rounded-2xl p-4 sm:p-5 shadow-lg border border-indigo-400/30">
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="text-xl">📸</span>
+        <h2 class="text-base sm:text-lg font-bold text-indigo-100">Come usare Gemini come Guida Personale</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-indigo-200 mb-3">
+        Davanti a un monumento, palazzo o chiesa, non serve leggere pagine e pagine: potete farlo parlare in italiano!
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs text-stone-200">
+        <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+          <p class="font-bold text-amber-300 mb-1">1. Apri l'app Gemini</p>
+          <p>Tocca l'icona dell'app Gemini sul telefono.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+          <p class="font-bold text-amber-300 mb-1">2. Scatta una foto</p>
+          <p>Tocca l'icona della <strong>macchina fotografica</strong> in basso e inquadra la facciata.</p>
+        </div>
+        <div class="bg-white/10 rounded-xl p-2.5 border border-white/10">
+          <p class="font-bold text-amber-300 mb-1">3. Chiedi a voce</p>
+          <p>Tocca il microfono e dì: <em>"Cosa sto guardando? Fammi da guida in italiano!"</em>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="max-w-2xl mx-auto px-4 mt-6 sticky top-2 z-40 no-print">
+    <div class="bg-stone-200/90 backdrop-blur-md p-1.5 rounded-2xl shadow flex gap-1 justify-between border border-stone-300">
+      <button onclick="switchTab('g1')" id="tab-btn-g1" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-white bg-stone-900 shadow">
+        Mar 27 Ott
+      </button>
+      <button onclick="switchTab('g2')" id="tab-btn-g2" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        Mer 28 Ott ⭐
+      </button>
+      <button onclick="switchTab('g3')" id="tab-btn-g3" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        Gio 29 Ott
+      </button>
+      <button onclick="switchTab('info')" id="tab-btn-info" class="tab-btn flex-1 py-2 text-xs sm:text-sm font-bold rounded-xl transition text-stone-700 hover:text-stone-900">
+        Consigli Utili
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+
+    <!-- ================================================================= -->
+    <!-- GIORNO 1: MARTEDÌ 27 OTTOBRE -->
+    <!-- ================================================================= -->
+    <div id="tab-g1" class="tab-content space-y-5 print-page">
+      <div class="border-b border-stone-200 pb-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+            Martedì 27 Ottobre: Arrivo & Moldava Rilassante
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+          Obiettivo: recuperare energie dalla sveglia alle 4:30. Zero salite, crociera panoramica in battello e cena a due passi dal letto.
+        </p>
+      </div>
+
+      <!-- VOLO ANDATA -->
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">✈️</span>
+          <div>
+            <p class="text-xs text-amber-800 font-bold uppercase">Volo Andata Ryanair FR3530</p>
+            <p class="text-sm font-semibold text-stone-800">Bergamo Orio (BGY) 08:00 → Praga (PRG) 09:25</p>
+            <p class="text-xs text-stone-500">Sveglia h 04:30. Atterraggio a Praga Terminal 2 (Schengen).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAPPA 1: DALL'AEROPORTO ALL'HOTEL & BUCO 10:15-11:30 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+              Ore 09:25 – 10:45: Atterraggio & Arrivo in Hotel
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Atterraggio, Uber e Deposito Bagagli</h3>
+          </div>
+          <span class="text-xl">🚕</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Atterrate alle <strong>09:25</strong> al Terminal 2. Usciti dal controllo documenti (ore 10:00 circa), prendete comodamente <strong>Uber o Bolt</strong> (16–20 € totali): in 25 minuti vi lascia davanti all'Hotel Páv (Křemencova 13).
+        </p>
+
+        <!-- DETTAGLIO 10:30 - 11:30 -->
+        <div class="mt-3 p-3.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm space-y-2">
+          <p class="font-bold text-stone-900 flex items-center gap-1.5">
+            <span>⏱️</span> Cosa fare tra le 10:30 e le 11:30 (Senza valigie e a ritmo dolce):
+          </p>
+          <ul class="space-y-1.5 text-stone-700 list-disc list-inside">
+            <li><strong>Ore 10:30 – 10:50</strong>: Consegna valigie alla reception dell'hotel (custodite gratis), uso dei bagni e rinfrescata dopo il volo.</li>
+            <li><strong>Ore 10:50 – 11:25</strong>: Passeggiata dolce di 30 minuti nei dintorni in piano: ammirate l'antica facciata con l'orologio della birreria <em>U Fleků</em> (a 30m nella stessa via) e le panchine alberate di <em>Karlovo náměstí</em> (Piazza Carlo) a 200m per prendere la prima aria di Praga.</li>
+            <li><strong>Ore 11:30</strong>: Ingresso rilassato al vicino Café Louvre per il pranzo caldo.</li>
+          </ul>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/dir/?api=1&origin=Prague+Airport&destination=Hotel+Pav+Kremencova+13+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            🗺️ Mappa Itinerario Aeroporto → Hotel Páv
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 2: CHECK-IN & PRANZO LEGGERO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+          Ore 11:30 – 12:45: Pranzo & Pausa Storica
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Sosta al Café Louvre (Frequentato da Kafka ed Einstein)</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          A piedi in soli <strong>4 minuti in piano</strong> dall'hotel arrivate allo storico <strong>Café Louvre</strong> (aperto nel 1902). Grandi saloni liberty rosa pastello, camerieri eleganti e atmosfera d'altri tempi.
+        </p>
+        <div class="mt-3 p-3 bg-amber-50/70 border border-amber-200 rounded-xl text-xs text-stone-700">
+          ☕ <strong>Cosa prendere</strong>: Zuppa calda tradizionale boema (riscaldante dopo il volo), oppure strudel di mele caldo con crema alla vaniglia e cioccolata densa.
+        </div>
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Louvre+Narodni+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Apri Café Louvre su Maps
+          </a>
+          <a href="https://gemini.google.com/app" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
+            🤖 Chiedi a Gemini curiosità su Kafka
+          </a>
+        </div>
+      </div>
+
+      <!-- NOTA ORARIO CAMERA 15:30 -->
+      <div class="p-3.5 bg-amber-500/15 border border-amber-400/50 rounded-2xl flex items-start gap-3">
+        <span class="text-2xl">ℹ️</span>
+        <div class="text-xs sm:text-sm">
+          <p class="font-bold text-amber-950 uppercase tracking-wide">Orario Camera Hotel Páv: Pronta alle 15:30</p>
+          <p class="text-stone-700 mt-0.5">
+            I bagagli restano custoditi gratuitamente alla reception dell'hotel. Dalle 13:00 alle 15:30 non serve stancarsi: ecco le <strong>migliori alternative rilassanti, seduti al caldo e a zero fatica</strong> prima di prendere possesso della stanza.
+          </p>
+        </div>
+      </div>
+
+      <!-- SEZIONE ALTERNATIVE 13:00 - 15:30 CON ROUTE CARD STILE 21ST.DEV -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 13:00 – 15:30 (In attesa della camera)
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Alternative Relax a Zero Fatica (Scegliete voi!)</h3>
+          </div>
+          <span class="text-xl">✨</span>
+        </div>
+
+        <!-- ROUTE CARD 21ST.DEV STYLE PER IL TRAM 22 CON MAPPA INTERATTIVA -->
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-amber-50/90 to-stone-50 border border-amber-200 shadow-sm space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-500 text-stone-950">
+              🚋 Opzione 1 Consigliatissima: Tour Panoramico sul Tram 22 (Gratis)
+            </span>
+            <span class="text-xs font-semibold text-stone-500">~14 min a tratta (45 min a/r)</span>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-700">
+            Salite a 200m dall'hotel, vi sedete comodi al calduccio e vi godete l'itinerario panoramico più celebre di Praga <strong>senza scendere mai dal tram</strong>! Ecco il tracciato visibile direttamente sulla mappa:
+          </p>
+
+          <!-- MAPPA INTERATTIVA VISIVA DEL TRAM 22 A PRAGA -->
+          <div class="relative rounded-xl overflow-hidden border border-amber-300 shadow-sm">
+            <div id="map-tram22" class="w-full h-56 bg-stone-100 z-10"></div>
+            <div class="absolute bottom-1 right-1 z-20 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-stone-600 border border-stone-200">
+              Mappa Interattiva Linea 22
+            </div>
+          </div>
+
+          <!-- STEPPER FERMATE MULTI-TAPPA -->
+          <div class="space-y-2 border-l-2 border-amber-400 pl-3 ml-2 text-xs">
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-amber-500 ring-4 ring-amber-100"></span>
+              <p class="font-bold text-stone-900">1. Národní třída (Salita a 200m dall'hotel)</p>
+              <p class="text-stone-500">Si sale a bordo: ricordate che è gratis con la carta d'identità!</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-stone-400"></span>
+              <p class="font-bold text-stone-900">2. Národní divadlo (Teatro Nazionale)</p>
+              <p class="text-stone-500">Vista mozzafiato sul maestoso teatro con la cupola dorata.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-stone-400"></span>
+              <p class="font-bold text-stone-900">3. Attraversamento Ponte della Legione (Most Legií)</p>
+              <p class="text-stone-500">Il tram attraversa il fiume: guardate a destra per vedere il Ponte Carlo dall'acqua!</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-stone-400"></span>
+              <p class="font-bold text-stone-900">4. Újezd & Malostranské náměstí</p>
+              <p class="text-stone-500">Il tram curva tra i palazzi barocchi del quartiere storico di Malá Strana.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-stone-400"></span>
+              <p class="font-bold text-stone-900">5. Pražský hrad & Pohořelec (Collina del Castello)</p>
+              <p class="text-stone-500">Sale tra i boschi reali con vista panoramica su tutta Praga.</p>
+            </div>
+            <div class="relative">
+              <span class="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+              <p class="font-bold text-amber-900">6. Rientro comodo: restate a bordo fino alla fermata di partenza!</p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <!-- LINK A GOOGLE MAPS IN MODALITA TRANSIT / MEZZI PUBBLICI (Zero errore auto a 120km) -->
+            <a href="https://www.google.com/maps/dir/?api=1&origin=Narodn%C3%AD+t%C5%99%C3%ADda+Prague&destination=Pra%C5%BEsk%C3%BD+hrad+Prague&travelmode=transit" target="_blank" class="block w-full py-2.5 px-3 text-center bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs shadow transition active:scale-95">
+              🚋 Apri la Linea Tram 22 su Google Maps (Modalità Mezzi Pubblici)
+            </a>
+            <p class="text-[11px] text-stone-500 text-center mt-1">Si aprirà direttamente l'itinerario urbano in tram con orari in tempo reale e fermate intermedie di Praga.</p>
+          </div>
+        </div>
+
+        <!-- OPZIONE 2: BATTELLO ANTICIPATO -->
+        <div class="p-3.5 rounded-xl bg-blue-50/80 border border-blue-200 text-xs sm:text-sm space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🚢</span>
+            <p class="font-bold text-blue-950">Opzione 2: Giro in Battello sulla Moldava (Anticipato alle 14:00)</p>
+          </div>
+          <p class="text-stone-700">
+            Crociera fluviale coperta di 50 minuti con bar interno riscaldato per gustarsi un tè o caffè scivolando sul fiume.
+          </p>
+        </div>
+
+        <!-- OPZIONE 3: GALLERIE COPERTE LUCERNA -->
+        <div class="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-xs sm:text-sm space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🏛️</span>
+            <p class="font-bold text-stone-900">Opzione 3: I Passaggi Coperti Liberty (Galleria Lucerna)</p>
+          </div>
+          <p class="text-stone-700">
+            A 6 minuti a piedi in piano dall'hotel entrate nel monumentale <strong>Passaggio Lucerna</strong>: un dedalo di gallerie coperte eleganti d'inizio '900, al riparo da vento e pioggia, con la statua del cavallo rovesciato di David Černý appesa alla cupola.
+          </p>
+          <div class="pt-1">
+            <a href="https://www.google.com/maps/search/?api=1&query=Lucerna+Passage+Prague" target="_blank" class="inline-block py-1 px-2.5 text-xs font-semibold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Mappa Galleria Lucerna (500m dall'hotel)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORE 15:30: PRESA CAMERA ALL'HOTEL -->
+      <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center gap-3">
+        <span class="text-2xl">🔑</span>
+        <div class="text-xs sm:text-sm">
+          <p class="font-bold text-emerald-900">Ore 15:30 – 16:30: Consegna Chiavi Camera & Rinfrescata</p>
+          <p class="text-stone-700">Rientro comodo all'Hotel Páv, ritiro bagagli alla reception, consegna camera, scarpe comode e 45 minuti per rinfrescarsi prima dell'uscita serale.</p>
+        </div>
+      </div>
+
+      <!-- TAPPA POMERIGGIO / TRAMONTO: BATTELLO SERALE E ISTRUZIONI BIGLIETTO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 17:00 – Tramonto & Luci sulla Moldava
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Crociera Panoramica o Passeggiata sul Lungofiume</h3>
+          </div>
+          <span class="text-xl">🚢</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600">
+          Verso le 17:00 le luci calde della sera si accendono sul Castello e sul Ponte Carlo. È il momento più magico per salire sul battello coperto o passeggiare sul lungofiume.
+        </p>
+
+        <!-- GUIDA COMPRARE IL BIGLIETTO BATTELLO -->
+        <div class="p-3.5 bg-stone-50 border border-stone-200 rounded-xl text-xs space-y-2">
+          <p class="font-bold text-stone-900 flex items-center gap-1.5 text-xs sm:text-sm">
+            <span>🎟️</span> Come e Dove Comprare il Biglietto del Battello:
+          </p>
+          <ul class="space-y-1.5 text-stone-700">
+            <li><strong>📍 Dove si compra</strong>: Direttamente ai chioschi in legno sul molo principale <em>Dvořákovo nábřeží</em> (moli numero 3 o 5 con insegna <strong>Prague Boats</strong> vicino al ponte Čechův most) oppure al molo sotto il Ponte Carlo.</li>
+            <li><strong>💶 Quanto costa</strong>: Circa <strong>350 – 420 CZK</strong> a persona (14 – 17 €). La crociera dura 50–60 minuti.</li>
+            <li><strong>💳 Come si paga</strong>: Con Bancomat o Carta di Credito contactless (selezionando sempre CZK al POS).</li>
+            <li><strong>🗣️ Cosa dire al chiosco</strong>: Basta dire in inglese <em>"Two tickets for one-hour cruise, please"</em> oppure indicare sul cartellone <em>"1 Hour Panoramic Cruise"</em>.</li>
+            <li><strong>☕ Comfort a bordo</strong>: Il battello ha saloni interni riscaldati con tavolini e bar per ordinare un caffè, tè caldo o una birra mentre si naviga.</li>
+          </ul>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Prague+Boats+dock+Dvorakovo+nabrezi" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Molo Battelli (Dvořákovo nábřeží)
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Smetanovo+nabrezi+Prague" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-semibold bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition">
+            🌅 Mappa Passeggiata Lungofiume Tramonto
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 4: CENA A 30 METRI DA CASA -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+              Ore 19:30 – Cena Tipica Boema
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Birreria Storica U Fleků (Anno 1499)</h3>
+          </div>
+          <span class="text-xl">🍺</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          La più celebre e antica fabbrica di birra di Praga si trova <strong>esattamente nella stessa via del vostro albergo (Křemencova)</strong>, a soli 40 metri a piedi! Tavoli di legno massiccio, volte gotiche e camerieri con vassoi di birra scura prodotta in loco.
+        </p>
+        <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-stone-800">
+          🍖 <strong>Cosa ordinare</strong>: <em>Guláš s knedlíky</em> (stufato di manzo tenerissimo con canederli di pane soffici) oppure arrosto di maiale con crauti, accompagnato dalla loro birra scura al caramello (Flekovský ležák).
+        </div>
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=U+Fleku+Kremencova+11+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Apri U Fleků su Maps (40m dall'hotel)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- GIORNO 2: MERCOLEDÌ 28 OTTOBRE (GIORNO CLOU) -->
+    <!-- ================================================================= -->
+    <div id="tab-g2" class="tab-content hidden space-y-5 print-page">
+      <div class="border-b border-stone-200 pb-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+            Mercoledì 28 Ottobre: Castello in Discesa & Ghetto Ebraico
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+          Il giorno principale, riposati e carichi. Il trucco salva-gambe: <strong>si sale in tram e si scende a piedi!</strong> Pause ogni 90 minuti.
+        </p>
+      </div>
+
+      <!-- TRUCCO SALVA-GAMBE TRAM 22 -->
+      <div class="bg-amber-500 text-stone-950 p-4 rounded-2xl shadow-sm border border-amber-400 flex items-start gap-3">
+        <span class="text-2xl">🚋</span>
+        <div class="text-xs sm:text-sm">
+          <p class="font-extrabold uppercase tracking-wide">Il Trucco d'Oro per il Castello</p>
+          <p class="mt-0.5">
+            <strong>Mai salire i 200 gradini della Vecchia Scalinata a piedi!</strong> Prendete il <strong>Tram 22</strong> (gratis con la vostra carta d'identità) e scendete alla fermata <em>Pražský hrad</em>. Vi lascia proprio sul retro del Castello, già in cima: camminerete solo in piano e in discesa!
+          </p>
+        </div>
+      </div>
+
+      <!-- TAPPA 1: CASTELLO DI PRAGA E SAN VITO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 09:30 – 11:30 (Mattina in Quota)
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Cattedrale di San Vito & Cortili del Castello</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          La Cattedrale gotica di San Vito è mozzafiato. L'accesso alla prima navata è gratuito. All'esterno potete passeggiare tra il Vicolo d'Oro e ammirare la vista su tutta Praga dai bastioni del castello.
+        </p>
+
+        <!-- CARD INTERATTIVA GEMINI -->
+        <div class="mt-3.5 p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs space-y-2">
+          <div class="flex items-center gap-2 font-bold text-indigo-900">
+            <span>📸</span>
+            <span>Chiedi la guida vocale a Gemini su San Vito</span>
+          </div>
+          <p class="text-stone-700">
+            Inquadra la facciata di San Vito con la fotocamera di Gemini e chiedi a voce:
+            <em>"Spiegami la storia della Cattedrale di San Vito e dimmi chi sono i personaggi delle vetrate di Mucha."</em>
+          </p>
+          <div class="flex gap-2 pt-1">
+            <a href="https://gemini.google.com/app" target="_blank" class="flex-1 py-1.5 px-3 text-center bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+              🤖 Apri Gemini sul Telefono
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral+Prague+Castle" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Castello su Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 2: DISCESA A MALÁ STRANA E PONTE CARLO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 11:30 – 13:00 (Discesa Dolce)
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Malá Strana, Isola di Kampa & Ponte Carlo</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Dalla Porta del Castello scendete a piedi lungo via Nerudova (tutta discesa tra palazzi nobiliari con stemmi barocchi). Passate vicino all'Isola di Kampa con i suoi canali romantici e salite sul leggendario <strong>Ponte Carlo</strong> (Karlův Most) ammirando le 30 statue di santi.
+        </p>
+
+        <!-- CARD INTERATTIVA GEMINI SAN GIOVANNI NEPOMUCENO -->
+        <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs space-y-1.5">
+          <p class="font-bold text-amber-900">✨ La Curiosità del Ponte Carlo:</p>
+          <p class="text-stone-700">Toccate la targa di bronzo sotto la statua di <strong>San Giovanni Nepomuceno</strong> (lucida d'oro per le carezze dei viaggiatori): porta fortuna e garantisce che tornerete a Praga!</p>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Charles+Bridge+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Ponte Carlo
+          </a>
+          <a href="https://gemini.google.com/app" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
+            🤖 Gemini: Leggenda del Ponte Carlo
+          </a>
+        </div>
+      </div>
+
+      <!-- PRANZO CONSIGLIATO -->
+      <div class="p-3.5 bg-stone-100 border border-stone-300 rounded-2xl flex items-center justify-between gap-3">
+        <div>
+          <p class="text-xs font-bold text-stone-800 uppercase">Ore 13:00 – Sosta Pranzo Consigliata</p>
+          <p class="text-sm font-bold text-stone-900">Ristorante Lokál Dlouhááá oppure U Parlamentu</p>
+          <p class="text-xs text-stone-600">Cucina casalinga, birra spillata perfetta e sedie comodissime per riposare le gambe.</p>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=U+Parlamentu+Valentinska+Prague" target="_blank" class="px-3 py-1.5 bg-stone-900 text-white rounded-xl text-xs font-semibold whitespace-nowrap">
+          📍 Mappa
+        </a>
+      </div>
+
+      <!-- TAPPA 3: IL QUARTIERE EBRAICO (JOSEFOV) -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-1.5">
+              Ore 14:30 – 16:30 (Pomeriggio in Piano)
+            </span>
+            <h3 class="text-base sm:text-lg font-bold text-stone-900">Il Quartiere Ebraico (Josefov)</h3>
+          </div>
+          <span class="text-xl">🕍</span>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          La tappa a cui mamma teneva tantissimo. È interamente pianeggiante, raccolto in pochi isolati pedonali silenziosi ed eleganti.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3 text-xs text-stone-700">
+          <div class="p-2.5 bg-stone-50 rounded-xl border border-stone-200">
+            <p class="font-bold text-stone-900">1. Sinagoga Spagnola</p>
+            <p>Interni dorati moreschi mozzafiato, considerata la sinagoga più bella d'Europa.</p>
+          </div>
+          <div class="p-2.5 bg-stone-50 rounded-xl border border-stone-200">
+            <p class="font-bold text-stone-900">2. Antico Cimitero Ebraico</p>
+            <p>Migliaia di lapidi gotiche e barocche sovrapposte sotto alberi secolari. Un luogo di pace assoluta.</p>
+          </div>
+        </div>
+
+        <div class="mt-3.5 p-3.5 bg-indigo-50 border border-indigo-200 rounded-xl text-xs space-y-1.5">
+          <p class="font-bold text-indigo-900">🤖 Fatti raccontare la leggenda del Golem con Gemini:</p>
+          <p class="text-stone-700">Tocca il pulsante qui sotto per aprire Gemini e chiedi: <em>"Raccontami la leggenda del Golem di Praga e del rabbino Loew nella Sinagoga Vecchia-Nuova."</em></p>
+          <div class="pt-1">
+            <a href="https://gemini.google.com/app" target="_blank" class="block w-full py-1.5 px-3 text-center bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition">
+              🤖 Ascolta la Storia del Golem
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Jewish+Quarter+Josefov+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Quartiere Ebraico
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 4: PIAZZA CITTÀ VECCHIA & OROLOGIO ASTRONOMICO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 17:00 – Lo Spettacolo
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Piazza Città Vecchia & Orologio Astronomico</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Camminando 5 minuti in piano dal Quartiere Ebraico si sbuca nella grande Piazza della Città Vecchia (Staroměstské náměstí). Posizionatevi davanti alla torre del Municipio qualche minuto prima dello scoccare dell'ora esatta (es. alle 17:00 o 18:00) per vedere sfilare le statuine degli Apostoli!
+        </p>
+
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Prague+Astronomical+Clock" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Orologio Astronomico
+          </a>
+          <a href="https://gemini.google.com/app" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
+            🤖 Gemini: Come leggere l'Orologio
+          </a>
+        </div>
+      </div>
+
+      <!-- CENA SERA 2 -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 19:30 – Cena Tipica della Tradizione
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">U Pinkasů (Fondata nel 1843)</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          È il locale storico dove per la prima volta nel 1843 fu servita la Pilsner Urquell a Praga. Atmosfera autentica, camerieri storici, tavoli in legno e piatti boemi eccellenti.
+        </p>
+        <p class="text-xs text-amber-900 font-semibold mt-1.5">
+          🍖 Piatto top: <em>Svíčková na smetaně</em> (filetto di manzo con crema di verdure caramellate, panna acida, mirtilli rossi e canederli).
+        </p>
+        <div class="mt-3">
+          <a href="https://www.google.com/maps/search/?api=1&query=U+Pinkasu+Jungmannovo+namesti+Prague" target="_blank" class="block text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa U Pinkasů (a 7 min a piedi dall'hotel)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- GIORNO 3: GIOVEDÌ 29 OTTOBRE (PARTENZA) -->
+    <!-- ================================================================= -->
+    <div id="tab-g3" class="tab-content hidden space-y-5 print-page">
+      <div class="border-b border-stone-200 pb-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+            Giovedì 29 Ottobre: Lungofiume & Rientro
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+          Mattina rilassante attorno all'albergo senza allontanarsi troppo. Volo di ritorno alle 17:05 (partenza verso l'aeroporto alle 14:15).
+        </p>
+      </div>
+
+      <!-- VOLO RITORNO -->
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🛫</span>
+          <div>
+            <p class="text-xs text-amber-800 font-bold uppercase">Volo Ritorno Ryanair FR3527</p>
+            <p class="text-sm font-semibold text-stone-800">Praga (PRG) 17:05 → Bergamo Orio (BGY) 18:30</p>
+            <p class="text-xs text-stone-500">Arrivo in aeroporto tassativo entro le 15:00. Partenza dall'hotel alle 14:15.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAPPA 1: CHECK OUT & PASSEGGIATA LUNGOFIUME -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 10:00 – Check-out e Dintorni
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Check-out Hotel & La Casa Danzante</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Fate il check-out lasciando ancora una volta le valigie alla reception dell'Hotel Páv. A soli <strong>5 minuti a piedi in piano</strong> verso il fiume trovate la famosa <strong>Casa Danzante</strong> (Tančící dům) di Frank Gehry, soprannominata <em>"Ginger e Fred"</em> per la forma che ricorda due ballerini allacciati.
+        </p>
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Dancing+House+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Casa Danzante
+          </a>
+          <a href="https://gemini.google.com/app" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
+            🤖 Gemini: Storia di Ginger & Fred
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 2: ISOLA DI ZOFIN & CAFE SLAVIA -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 11:30 – Merendina d'Arrivederci
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Isola Slovanský (Žofín) & Caffè Slavia</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Passeggiata sull'isolotto verde pedonale di Žofín, con panchine sul pelo dell'acqua e cigni sulla Moldava. Poi attraversate il ponte per sedervi allo storico <strong>Café Slavia</strong>, con le enormi vetrate liberty che guardano il fiume e il Castello.
+        </p>
+        <div class="mt-3 flex gap-2">
+          <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Slavia+Prague" target="_blank" class="flex-1 text-center py-2 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Mappa Café Slavia
+          </a>
+        </div>
+      </div>
+
+      <!-- TAPPA 3: PRANZO TRANQUILLO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200">
+        <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-bold bg-stone-100 text-stone-700 mb-1.5">
+          Ore 12:45 – Ultimo Pranzo Praghese
+        </span>
+        <h3 class="text-base sm:text-lg font-bold text-stone-900">Pranzo a 100 metri dall'hotel</h3>
+        <p class="text-xs sm:text-sm text-stone-600 mt-2">
+          Pranzo rilassato in uno dei ristorantini attorno a Křemencova (es. <em>Restaurace U Bubeníčků</em> o una seconda sosta da U Fleků per chiudere in bellezza).
+        </p>
+      </div>
+
+      <!-- CRONOPROGRAMMA RIENTRO -->
+      <div class="bg-amber-100/80 border border-amber-300 rounded-2xl p-4 text-xs sm:text-sm text-stone-900 space-y-2">
+        <p class="font-extrabold text-amber-950 uppercase tracking-wide">⏰ Tabella di Marcia per il Rientro:</p>
+        <ul class="space-y-1 text-stone-800">
+          <li><strong>Ore 14:15</strong>: Ritiro bagagli all'Hotel Páv e chiamata Uber/Bolt.</li>
+          <li><strong>Ore 14:45 – 15:00</strong>: Arrivo all'Aeroporto Václav Havel (Terminal 2).</li>
+          <li><strong>Ore 15:15 – 16:15</strong>: Controlli di sicurezza e gate d'imbarco.</li>
+          <li><strong>Ore 16:35</strong>: Apertura imbarco volo FR3527.</li>
+          <li><strong>Ore 17:05</strong>: Decollo verso Bergamo Orio al Serio.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- TAB: CONSIGLI UTILI & EMERGENZE -->
+    <!-- ================================================================= -->
+    <div id="tab-info" class="tab-content hidden space-y-5 print-page">
+      <div class="border-b border-stone-200 pb-3">
+        <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900">
+          Consigli Salva-Viaggio per Mamma e Papà
+        </h2>
+        <p class="text-xs sm:text-sm text-stone-600 mt-1">
+          Regole pratiche per non farsi fregare, non stancarsi e viaggiare sereni.
+        </p>
+      </div>
+
+      <!-- SOLDI E BANCOMAT -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-2">
+        <h3 class="text-base font-bold text-stone-900 flex items-center gap-2">
+          <span>💳</span> Pagamenti e Valuta (Corona Ceca - CZK)
+        </h3>
+        <ul class="text-xs sm:text-sm text-stone-700 space-y-2 list-disc list-inside">
+          <li><strong>Pagate quasi tutto con Carta / Bancomat contactless</strong>: a Praga anche i caffè, i mercatini e i taxi prendono la carta senza commissioni.</li>
+          <li><strong>Al POS scegliete sempre CZK (Corone) e MAI Euro</strong>: se il display vi chiede "Addebitare in EUR o in CZK?", premete sempre <strong>CZK</strong>! Se scegliete Euro la banca locale applica un cambio sfavorevole.</li>
+          <li><strong>Zero uffici di cambio per strada</strong>: evitate assolutamente di cambiare contanti nei chioschi con insegna "Change 0% commission" nel centro storico. Se proprio servono contanti, prelevate da bancomat ufficiali di banche vere (Česká spořitelna, Komerční banka).</li>
+        </ul>
+      </div>
+
+      <!-- TAXI -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-2">
+        <h3 class="text-base font-bold text-stone-900 flex items-center gap-2">
+          <span>🚕</span> Taxi e Corse
+        </h3>
+        <p class="text-xs sm:text-sm text-stone-700">
+          <strong>Non fermate mai taxi per strada al volo!</strong> Usate solo l'app <strong>Uber</strong> o <strong>Bolt</strong> sul telefono: il prezzo è bloccato prima di salire, l'addebito va su carta e sapete esattamente chi vi sta venendo a prendere.
+        </p>
+      </div>
+
+      <!-- NUMERI UTILI -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-2">
+        <h3 class="text-base font-bold text-stone-900 flex items-center gap-2">
+          <span>🚨</span> Numeri Utili & Assistenza
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
+          <div class="p-2.5 bg-stone-50 rounded-xl">
+            <p class="font-bold text-stone-900">Ambasciata d'Italia a Praga</p>
+            <p>Nerudova 20, Malá Strana</p>
+            <p>Tel: +420 233 080 111</p>
+          </div>
+          <div class="p-2.5 bg-stone-50 rounded-xl">
+            <p class="font-bold text-stone-900">Numero Unico Europeo Emergenze</p>
+            <p class="text-lg font-bold text-red-600">112</p>
+            <p>Polizia, Ambulanza (anche in italiano/inglese)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAROLE UTILI IN CECO -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 space-y-2">
+        <h3 class="text-base font-bold text-stone-900 flex items-center gap-2">
+          <span>🗣️</span> 5 Parole Gentili in Ceco
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Buongiorno / Salve</p>
+            <p class="text-stone-800 font-serif text-sm">Dobrý den</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Dòbri den</em></p>
+          </div>
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Grazie</p>
+            <p class="text-stone-800 font-serif text-sm">Děkuji</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Dièkui</em></p>
+          </div>
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Per favore</p>
+            <p class="text-stone-800 font-serif text-sm">Prosím</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Pròsim</em></p>
+          </div>
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Il conto, per favore</p>
+            <p class="text-stone-800 font-serif text-sm">Účet, prosím</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Ùcet, pròsim</em></p>
+          </div>
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Dov'è il bagno?</p>
+            <p class="text-stone-800 font-serif text-sm">Kde je toaleta?</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Gde ie toalèta?</em></p>
+          </div>
+          <div class="p-2 bg-amber-50 rounded-lg">
+            <p class="font-bold text-amber-900">Arrivederci</p>
+            <p class="text-stone-800 font-serif text-sm">Na shledanou</p>
+            <p class="text-stone-500 text-[10px]">si pronuncia <em>Naskledanou</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM BAR FOR MOBILE -->
+  <footer class="max-w-2xl mx-auto px-4 py-8 text-center text-xs text-stone-500 border-t border-stone-200 mt-10 safe-bottom">
+    <p class="font-serif italic text-sm text-stone-700">Buon viaggio mamma e papà! Godetevi Praga a passo lento. ❤️</p>
+    <p class="mt-1">Creato con amore da Davide & Antigravity</p>
+  </footer>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-stone-900', 'text-white', 'shadow');
+        btn.classList.add('text-stone-700');
+      });
+
+      const activeContent = document.getElementById('tab-' + tabId);
+      const activeBtn = document.getElementById('tab-btn-' + tabId);
+
+      if (activeContent) activeContent.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-stone-900', 'text-white', 'shadow');
+        activeBtn.classList.remove('text-stone-700');
+      }
+      if (tabId === 'g1' && window.tramMap) {
+        setTimeout(() => window.tramMap.invalidateSize(), 150);
+      }
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    // Inizializzazione Mappa Interattiva Tram 22
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const mapContainer = document.getElementById('map-tram22');
+        if (mapContainer && typeof L !== 'undefined') {
+          const map = L.map('map-tram22', {
+            zoomControl: false,
+            attributionControl: false
+          }).setView([50.088, 14.408], 13);
+          window.tramMap = map;
+
+          L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            subdomains: 'abc'
+          }).addTo(map);
+
+          const tramStops = [
+            { name: "1. Národní třída (Partenza)", coords: [50.0818, 14.4187] },
+            { name: "2. Národní divadlo (Teatro)", coords: [50.0813, 14.4138] },
+            { name: "3. Újezd (Malá Strana)", coords: [50.0833, 14.4045] },
+            { name: "4. Malostranské náměstí", coords: [50.0881, 14.4041] },
+            { name: "5. Pražský hrad (Castello)", coords: [50.0935, 14.3985] },
+            { name: "6. Pohořelec (Belvedere)", coords: [50.0878, 14.3888] }
+          ];
+
+          const latlngs = tramStops.map(s => s.coords);
+
+          // Linea arancione tram 22
+          L.polyline(latlngs, {
+            color: '#d97706',
+            weight: 5,
+            opacity: 0.85,
+            dashArray: '6, 6'
+          }).addTo(map);
+
+          // Marker per ciascuna fermata
+          tramStops.forEach((stop, idx) => {
+            const marker = L.circleMarker(stop.coords, {
+              radius: idx === 0 || idx === 4 ? 8 : 6,
+              fillColor: idx === 0 ? '#10b981' : (idx === 4 ? '#b91c1c' : '#d97706'),
+              color: '#ffffff',
+              weight: 2,
+              opacity: 1,
+              fillOpacity: 0.95
+            }).addTo(map);
+            marker.bindPopup(`<strong>${stop.name}</strong>`);
+          });
+
+          setTimeout(() => map.invalidateSize(), 300);
+        }
+      } catch (err) {
+        console.warn("Leaflet map load warning:", err);
+      }
+    });
+
+    // Controllo automatico aggiornamenti (Zero Cache)
+    const CURRENT_APP_VERSION = "1.0.1";
+    async function checkForUpdates() {
+      try {
+        const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.version && data.version !== CURRENT_APP_VERSION) {
+            console.log("Rilevata nuova versione su Vercel:", data.version);
+            window.location.reload(true);
+          }
+        }
+      } catch (e) {}
+    }
+    // Ricarica automaticamente quando si riprende la tab del telefono
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') checkForUpdates();
+    });
+    // Verifica ogni 45 secondi
+    setInterval(checkForUpdates, 45000);
+  </script>
+</body>
+</html>
