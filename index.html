@@ -75,13 +75,13 @@
         La guida rilassata creata su misura per mamma e papà. Zero corse, pause frequenti e spiegazioni con Gemini.
       </p>
 
-      <!-- GOLD BADGE OVER 65 -->
-      <div class="mt-4 p-3.5 bg-amber-500/15 border border-amber-400/40 rounded-xl flex items-start gap-3">
-        <span class="text-2xl">🎟️</span>
+      <!-- RED BANNER OVER 65 (RICHIESTO DA ANTO) -->
+      <div class="mt-4 p-4 bg-red-600 border-2 border-red-400 rounded-2xl shadow-lg flex items-start gap-3.5 text-white">
+        <span class="text-3xl">🎟️</span>
         <div class="text-xs sm:text-sm">
-          <p class="font-bold text-amber-200 uppercase tracking-wide">Regola d'oro Trasporti (Over 65)</p>
-          <p class="text-stone-200 mt-0.5">
-            A Praga <strong class="text-white underline">NON pagate nessun biglietto</strong> su metro, tram e bus urbani! Viaggiate <strong>GRATIS al 100%</strong>: basta avere in borsa la Carta d'Identità o Passaporto con la data di nascita se c'è un controllo.
+          <p class="font-extrabold text-amber-200 uppercase tracking-wider text-xs sm:text-sm">Regola d'oro Trasporti (Over 65)</p>
+          <p class="text-white font-medium mt-1 leading-relaxed">
+            A Praga <strong class="bg-red-800 px-1.5 py-0.5 rounded text-yellow-300 font-extrabold underline decoration-yellow-300">NON PAGATE NESSUN BIGLIETTO</strong> su tutti i mezzi pubblici (metro, tram e bus urbani)! Viaggiate <strong>GRATIS al 100%</strong>: basta esibire la Carta d'Identità o Passaporto originale con la data di nascita solo in caso di controllo.
           </p>
         </div>
       </div>
@@ -314,17 +314,21 @@
             </div>
           </div>
 
-          <div class="pt-2">
-            <!-- LINK A GOOGLE MAPS IN MODALITA TRANSIT / MEZZI PUBBLICI (Zero errore auto a 120km) -->
-            <a href="https://www.google.com/maps/dir/?api=1&origin=Narodn%C3%AD+t%C5%99%C3%ADda+Prague&destination=Pra%C5%BEsk%C3%BD+hrad+Prague&travelmode=transit" target="_blank" class="block w-full py-2.5 px-3 text-center bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs shadow transition active:scale-95">
-              🚋 Apri la Linea Tram 22 su Google Maps (Modalità Mezzi Pubblici)
-            </a>
-            <p class="text-[11px] text-stone-500 text-center mt-1">Si aprirà direttamente l'itinerario urbano in tram con orari in tempo reale e fermate intermedie di Praga.</p>
+          <div class="pt-2 space-y-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Tram+stop+Národní+třída+Prague" target="_blank" class="py-2.5 px-3 text-center bg-stone-900 hover:bg-stone-800 text-white rounded-xl font-bold text-xs shadow transition active:scale-95">
+                📍 Fermata Salita (Národní třída — 200m)
+              </a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Tram+stop+Pražský+hrad+Prague" target="_blank" class="py-2.5 px-3 text-center bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs shadow transition active:scale-95">
+                📍 Fermata Castello (Pražský hrad)
+              </a>
+            </div>
+            <p class="text-[11px] text-stone-500 text-center">Toccando il pulsante si apre direttamente la posizione esatta con il punto di interesse della pensilina dove aspettare il tram.</p>
           </div>
         </div>
 
         <!-- OPZIONE 2: BATTELLO ANTICIPATO -->
-        <div class="p-3.5 rounded-xl bg-blue-50/80 border border-blue-200 text-xs sm:text-sm space-y-1.5">
+        <div class="p-3.5 rounded-xl bg-blue-50/80 border border-blue-200 text-xs sm:text-sm space-y-2">
           <div class="flex items-center gap-2">
             <span class="text-base">🚢</span>
             <p class="font-bold text-blue-950">Opzione 2: Giro in Battello sulla Moldava (Anticipato alle 14:00)</p>
@@ -332,6 +336,14 @@
           <p class="text-stone-700">
             Crociera fluviale coperta di 50 minuti con bar interno riscaldato per gustarsi un tè o caffè scivolando sul fiume.
           </p>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <a href="https://www.prague-boats.cz/one-hour-river-cruise" target="_blank" class="py-1.5 px-2.5 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition shadow-sm">
+              🎟️ Biglietti & Orari Ufficiali (Prague Boats)
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Prague+Boats+pier+3+Dvorakovo+nabrezi+Prague" target="_blank" class="py-1.5 px-2.5 text-xs font-semibold bg-stone-900 text-white rounded-lg hover:bg-stone-800">
+              📍 Molo d'Imbarco (Molo 3)
+            </a>
+          </div>
         </div>
 
         <!-- OPZIONE 3: GALLERIE COPERTE LUCERNA -->
@@ -389,12 +401,15 @@
           </ul>
         </div>
 
-        <div class="mt-3 flex gap-2">
-          <a href="https://www.google.com/maps/search/?api=1&query=Prague+Boats+dock+Dvorakovo+nabrezi" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
-            📍 Mappa Molo Battelli (Dvořákovo nábřeží)
+        <div class="mt-3 flex flex-col sm:flex-row gap-2">
+          <a href="https://www.prague-boats.cz/one-hour-river-cruise" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow transition">
+            🎟️ Sito Ufficiale Biglietti & Orari (Prague Boats)
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Prague+Boats+pier+3+Dvorakovo+nabrezi+Prague" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-semibold bg-stone-900 text-white rounded-xl hover:bg-stone-800 transition">
+            📍 Posizione Molo d'Imbarco (Molo 3)
           </a>
           <a href="https://www.google.com/maps/search/?api=1&query=Smetanovo+nabrezi+Prague" target="_blank" class="flex-1 text-center py-2.5 px-3 text-xs font-semibold bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition">
-            🌅 Mappa Passeggiata Lungofiume Tramonto
+            🌅 Lungofiume Tramonto
           </a>
         </div>
       </div>
@@ -439,14 +454,24 @@
         </p>
       </div>
 
-      <!-- TRUCCO SALVA-GAMBE TRAM 22 -->
-      <div class="bg-amber-500 text-stone-950 p-4 rounded-2xl shadow-sm border border-amber-400 flex items-start gap-3">
-        <span class="text-2xl">🚋</span>
-        <div class="text-xs sm:text-sm">
-          <p class="font-extrabold uppercase tracking-wide">Il Trucco d'Oro per il Castello</p>
-          <p class="mt-0.5">
-            <strong>Mai salire i 200 gradini della Vecchia Scalinata a piedi!</strong> Prendete il <strong>Tram 22</strong> (gratis con la vostra carta d'identità) e scendete alla fermata <em>Pražský hrad</em>. Vi lascia proprio sul retro del Castello, già in cima: camminerete solo in piano e in discesa!
-          </p>
+      <!-- TRUCCO SALVA-GAMBE TRAM 22 IN ROSSO -->
+      <div class="bg-red-600 text-white p-4 rounded-2xl shadow-md border-2 border-red-400 space-y-3">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl">🚋</span>
+          <div class="text-xs sm:text-sm">
+            <p class="font-extrabold text-amber-200 uppercase tracking-wide">Il Trucco d'Oro per il Castello (Zero Scalinate)</p>
+            <p class="mt-0.5 text-stone-100">
+              <strong>Mai salire i 200 gradini della Vecchia Scalinata a piedi!</strong> Prendete il <strong>Tram 22</strong> (gratis con la carta d'identità) e scendete alla fermata <em>Pražský hrad</em>. Vi lascia proprio sul retro del Castello, già in cima: camminerete solo in piano e in discesa!
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-1 border-t border-red-500/50">
+          <a href="https://www.google.com/maps/search/?api=1&query=Tram+stop+Národní+třída+Prague" target="_blank" class="flex-1 min-w-[140px] py-1.5 px-2.5 text-center text-xs font-bold bg-white text-red-700 rounded-lg hover:bg-stone-100 transition shadow-sm">
+            📍 Fermata Salita (Národní třída)
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Tram+stop+Pražský+hrad+Prague" target="_blank" class="flex-1 min-w-[140px] py-1.5 px-2.5 text-center text-xs font-bold bg-white text-red-700 rounded-lg hover:bg-stone-100 transition shadow-sm">
+            📍 Fermata Castello (Pražský hrad)
+          </a>
         </div>
       </div>
 
@@ -871,7 +896,7 @@
     });
 
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.0.1";
+    const CURRENT_APP_VERSION = "1.0.2";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });

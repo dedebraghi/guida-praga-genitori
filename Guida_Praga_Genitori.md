@@ -35,12 +35,12 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
   - Passeggiata dolce di 30 minuti in piano: ammirate l'antica facciata con l'orologio della birreria *U Fleků* (a 30m nella stessa via) e le panchine alberate di *Karlovo náměstí* (Piazza Carlo) a 200m per prendere la prima aria di Praga.
 - **Ore 11:30:** Pranzo rilassato allo storico **Café Louvre** (Národní 22), frequentato da Kafka ed Einstein. Zuppa calda o cioccolata con strudel.
 - **Ore 13:00 – 15:30 (In attesa della camera alle 15:30 — Alternative a Zero Fatica):**
-  - *Opzione 1 (Consigliatissima - Sightseeing Tram 22 Gratis):* Si sale sul mitico Tram 22 alla fermata *Národní třída* (a 200m dall'hotel), ci si siede al finestrino e ci si gode il giro panoramico più bello d'Europa al caldo attraverso il fiume, Malá Strana e il Castello, tornando indietro senza fare un passo a piedi. [Mappa Itinerario a Tappe Tram 22 su Google Maps](https://www.google.com/maps/dir/N%C3%A1rodn%C3%AD+t%C5%99%C3%ADda/N%C3%A1rodn%C3%AD+divadlo/%C3%9Ajezd/Malostransk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD/Pra%C5%BEsk%C3%BD+hrad/Poho%C5%99elec).
-  - *Opzione 2 (Battello Pomeridiano Anticipato):* Crociera fluviale di 1 ora sulla Moldava al coperto con tè o caffè caldo a bordo.
+  - *Opzione 1 (Consigliatissima - Sightseeing Tram 22 Gratis):* Si sale sul mitico Tram 22 alla fermata *Národní třída* (a 200m dall'hotel), ci si siede al finestrino e ci si gode il giro panoramico più bello d'Europa al caldo attraverso il fiume, Malá Strana e il Castello, tornando indietro senza fare un passo a piedi. [Posizione Fermata Salita Národní třída su Google Maps](https://www.google.com/maps/search/?api=1&query=Tram+stop+Národní+třída+Prague).
+  - *Opzione 2 (Battello Pomeridiano Anticipato):* Crociera fluviale di 1 ora sulla Moldava al coperto con tè o caffè caldo a bordo. [Sito Ufficiale Biglietti & Orari Prague Boats](https://www.prague-boats.cz/one-hour-river-cruise).
   - *Opzione 3 (Gallerie Coperte Liberty):* Visita al riparo nel monumentale *Passaggio Lucerna* (a 6 minuti in piano dall'hotel) con negozi d'epoca e la statua del cavallo rovesciato di David Černý.
 - **Ore 15:30 – 16:30:** Consegna chiavi della camera all'Hotel Páv, salita in stanza e rinfrescata.
 - **Ore 17:00:** Passeggiata sul lungofiume al tramonto o **Crociera in Battello serale** con le prime luci accese sul Castello e Ponte Carlo.
-  - *Come comprare il biglietto:* Ai chioschi in legno sul molo *Dvořákovo nábřeží* (molo 3 o 5 *Prague Boats*), costo ~14–17 € (350–420 CZK), pagamento con carta contactless al chiosco. Chiedere *"Two tickets for 1-hour cruise, please"*. Bar riscaldato a bordo.
+  - *Biglietti & Orari:* [Sito Ufficiale Prague Boats per orari e acquisto online](https://www.prague-boats.cz/one-hour-river-cruise) oppure direttamente al [Molo 3 Dvořákovo nábřeží su Maps](https://www.google.com/maps/search/?api=1&query=Prague+Boats+pier+3+Dvorakovo+nabrezi+Prague). Costo ~14–17 € (350–420 CZK), pagamento con carta contactless al chiosco. Chiedere *"Two tickets for 1-hour cruise, please"*. Bar riscaldato a bordo.
 - **Ore 19:30:** Cena alla storica fabbrica di birra **U Fleků** (del 1499), situata **esattamente a 40 metri dall'hotel** nella stessa via Křemencova. Gulash con canederli e birra scura artigianale.
 
 ---
@@ -49,7 +49,7 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 *Ritmo: Il giorno clou, riposati e carichi. Camminate sempre in discesa o in piano.*
 
 #### Mattina: Il Castello "in Discesa"
-- **Trucco salva-gambe:** Prendete il **Tram 22** fino alla fermata ***Pražský hrad***. Vi lascia in quota sul retro del Castello: zero scalinate in salita!
+- **Trucco salva-gambe:** Prendete il **Tram 22** fino alla fermata ***Pražský hrad*** ([Posizione Fermata Pražský hrad su Google Maps](https://www.google.com/maps/search/?api=1&query=Tram+stop+Pražský+hrad+Prague)). Vi lascia in quota sul retro del Castello: zero scalinate in salita!
 - **Cattedrale di San Vito & Cortili:** Visita della maestosa cattedrale gotica e passeggiata nei cortili nobiliari.
 - **Discesa verso Malá Strana:** Dalla porta del castello scendete a piedi lungo via Nerudova (tutta discesa tra palazzi barocchi).
 - **Isola di Kampa & Ponte Carlo:** Ammirate i canali della "piccola Venezia" e salite sul Ponte Carlo. Toccate la targa dorata di **San Giovanni Nepomuceno** per assicurarvi il ritorno a Praga!
