@@ -28,11 +28,13 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 
 ### Giorno 1 (Martedì 27 Ottobre — Castello in Quota & Cambio della Guardia ⭐)
 - **09:25:** Atterraggio PRG $\rightarrow$ Uber diretto all'Hotel Páv (Křemencova 13).
-- **10:15:** Bagagli in deposito alla reception dell'hotel. A 200m salita sul **Tram 22** a *Národní třída* fino alla fermata *Pražský hrad* (in quota, zero salite a piedi!).
-- **11:00:** Spuntino, caffè e pasticceria a ridosso del Castello.
+- **10:15:** Bagagli in custodia alla reception dell'hotel.
+- **10:30 – 11:30 (Sosta Pasticceria / Spuntino — A vostra scelta se GIÙ o SU):**
+  - *Opzione A (GIÙ in centro prima di salire):* Sosta allo storico **Café Louvre** (a 4 min a piedi in piano dall'hotel Páv) per strudel caldo e caffè. Poi alle 11:15 salita sul Tram 22 a 50m.
+  - *Opzione B (SU al Castello con vista):* Salita immediata sul **Tram 22** a *Národní třída* senza soste giù. Alle 11:15 sosta pasticceria e caffè direttamente su al Castello alla terrazza panoramica di **Kuchyň**.
 - **12:00:** **Cambio solenne della Guardia** nel Primo Cortile del Castello (con fanfare e stendardo presidenziale).
-- **12:45 Pranzo:** **Kuchyň** sul piazzale panoramico del Castello *(Alt: U Zlaté podkovy a inizio via Nerudova / Cukrkávalimonáda)*.
-- **14:00 - 15:30:** Cattedrale di San Vito e discesa morbida a piedi lungo via Nerudova verso Malá Strana, oppure rientro diretto col Tram 22.
+- **12:45 Pranzo dopo la cerimonia:** **Kuchyň** sul piazzale del Castello *(Alt: U Zlaté podkovy a inizio via Nerudova / Cukrkávalimonáda)*.
+- **14:00 - 15:30:** Cattedrale di San Vito e discesa morbida a piedi lungo via Nerudova verso Malá Strana, oppure rientro comodo col Tram 22.
 - **15:45:** Consegna chiavi Hotel Páv, sistemazione bagagli, rinfrescata e meritato riposo in camera.
 - **19:30 Cena prima sera:** **Birreria U Fleků** a soli 40m dall'hotel *(Alt: U Bubeníčků a 150m / Pizzeria Kmotra a 180m)*.
 
@@ -64,10 +66,14 @@ Davanti a qualsiasi monumento, facciata di chiesa o palazzo:
 - **Ore 09:25:** Atterraggio all'Aeroporto Václav Havel (Terminal 2 Schengen).
 - **Ore 10:00 – 10:20:** Chiamata Uber o Bolt dall'app direttamente all'Hotel Páv (Křemencova 13). Costo circa 16–20 € (450–550 CZK).
 - **Ore 10:20 – 10:45:** Deposito bagagli gratuito alla reception dell'Hotel Páv, uso dei servizi e rinfrescata.
-- **Ore 10:45:** A 200 metri dall'hotel salite sul mitico **Tram 22** alla fermata [Národní třída su Google Maps](https://www.google.com/maps/search/?api=1&query=Tram+stop+Národní+třída+Prague).
-  - *Trucco salva-gambe:* Scendete alla fermata [Pražský hrad su Google Maps](https://www.google.com/maps/search/?api=1&query=Tram+stop+Pražský+hrad+Prague). Il tram vi scodella in quota alle spalle del Castello: entrate in piano senza fare uno scalino!
-- **Ore 11:15 – 11:50 (Spuntino pre-Guardia):** Pausa caffè e pasticceria per scaldarsi prima della cerimonia:
-  - *Opzione pasticceria/caffè:* **Kuchyň** o la caffetteria nei cortili del Castello per un caffè caldo e un dolce tradizionale boemo.
+- **Ore 10:30 – 11:30: Sosta Pasticceria / Caffè (Due Scelte Chiare: GIÙ o SU):**
+  - **SCELTA 1 (GIÙ — Pasticceria vicino all'hotel prima di salire):**
+    - **[Café Louvre](https://www.google.com/maps/search/?api=1&query=Cafe+Louvre+Narodni+22+Prague)** (Národní 22, a soli 4 minuti a piedi in piano dall'Hotel Páv).
+    - Saloni liberty viennesi d'inizio '900 frequentati da Kafka ed Einstein. Ideale se volete sedervi subito al caldo dopo il volo per un caffè caldo, un celebre strudel di mele appena sfornato o una quiche salata.
+    - *Logistica perfetta:* Alle 11:15 uscite dal Café Louvre e prendete il **Tram 22** alla fermata *Národní třída* proprio a 50 metri dal caffè per salire al Castello in tempo per la guardia delle 12:00!
+  - **SCELTA 2 (SU — Pasticceria direttamente in quota al Castello):**
+    - Se invece volete salire subito in tram senza fermarvi giù: alle 10:45 prendete il **Tram 22** da *Národní třída* e scendete a *Pražský hrad* (zero scalini, in quota sul retro del Castello).
+    - Alle 11:15 vi accomodate per caffè e dolce alla splendida terrazza panoramica di **[Kuchyň](https://www.google.com/maps/search/?api=1&query=Kuchyn+Hradcanske+nam.+186%2F1+Prague)** o nelle caffetterie dei cortili nobiliari, godendovi la vista su Praga prima che inizi la cerimonia.
 - **Ore 12:00: CAMBIO SOLENNE DELLA GUARDIA (Primo Cortile del Castello):**
   - La cerimonia principale con squilli di tromba, tamburi militari e cambio dello stendardo presidenziale. Dura circa 20-25 minuti. Posizionatevi vicino ai cancelli del Primo Cortile (Hradčanské náměstí) verso le 11:45.
 - **Ore 12:45 – 14:00: Pranzo dopo il cambio della guardia (3 alternative in quota o in discesa):**
