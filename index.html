@@ -559,6 +559,45 @@
           </div>
         </div>
 
+        <!-- AUDIOGUIDA DAVIDE PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida con la voce di Davide 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Castello & Guardia Reale</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio1-time">0:00 / 1:48</span>
+          </div>
+
+          <audio id="audio1" src="audio/castello_guardia.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio1', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio1', 'audio1-btn-icon', 'audio1-btn-text')" id="audio1-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio1-btn-icon">play_arrow</span>
+              <span id="audio1-btn-text">Ascolta il racconto di Davide</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio1', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio1-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio1', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
+        </div>
+
         <a href="https://www.google.com/maps/search/?api=1&query=Prague+Castle+First+Courtyard" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-primary text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
           <span class="material-symbols-outlined text-[22px]">pin_drop</span>
           <span>Posizione Primo Cortile del Castello su Maps</span>
@@ -1615,6 +1654,9 @@
 
     // Inizializzazione Mappa Interattiva Tram 22
     document.addEventListener('DOMContentLoaded', () => {
+      // Inizializza Audioguida Davide
+      setupAudioPlayer('audio1', 'audio1-time', 'audio1-progress', 'audio1-btn-icon', 'audio1-btn-text');
+
       // Inizializza preferenza font (default LARGE per mamma)
       try {
         const savedFont = localStorage.getItem('praga_font_size') || 'large';
@@ -1677,8 +1719,98 @@
       }
     });
 
+    // ==========================================
+    // GESTIONE AUDIOGUIDE DAVIDE (Zero Stress)
+    // ==========================================
+    function formatTime(seconds) {
+      if (isNaN(seconds) || seconds < 0) return "0:00";
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function togglePlay(audioId, iconId, textId) {
+      const audio = document.getElementById(audioId);
+      const icon = document.getElementById(iconId);
+      const text = document.getElementById(textId);
+      if (!audio) return;
+
+      document.querySelectorAll('audio').forEach(a => {
+        if (a !== audio && !a.paused) {
+          a.pause();
+        }
+      });
+
+      if (audio.paused) {
+        audio.play().then(() => {
+          if (icon) icon.textContent = 'pause';
+          if (text) text.textContent = 'Metti in Pausa';
+        }).catch(err => {
+          console.warn('Playback error:', err);
+        });
+      } else {
+        audio.pause();
+        if (icon) icon.textContent = 'play_arrow';
+        if (text) text.textContent = 'Ascolta il racconto di Davide';
+      }
+    }
+
+    function seekAudio(audioId, deltaSeconds) {
+      const audio = document.getElementById(audioId);
+      if (!audio) return;
+      audio.currentTime = Math.max(0, Math.min(audio.duration || 0, audio.currentTime + deltaSeconds));
+    }
+
+    function onProgressChange(audioId, val) {
+      const audio = document.getElementById(audioId);
+      if (!audio || !audio.duration) return;
+      audio.currentTime = (val / 100) * audio.duration;
+    }
+
+    function setupAudioPlayer(audioId, timeId, progressId, iconId, textId) {
+      const audio = document.getElementById(audioId);
+      const timeElem = document.getElementById(timeId);
+      const progress = document.getElementById(progressId);
+      const icon = document.getElementById(iconId);
+      const text = document.getElementById(textId);
+      if (!audio) return;
+
+      const updateDuration = () => {
+        if (audio.duration && timeElem) {
+          timeElem.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+        }
+      };
+
+      audio.addEventListener('loadedmetadata', updateDuration);
+      audio.addEventListener('durationchange', updateDuration);
+
+      audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+          if (progress) progress.value = (audio.currentTime / audio.duration) * 100;
+          if (timeElem) timeElem.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        if (icon) icon.textContent = 'play_arrow';
+        if (text) text.textContent = 'Riascolta il racconto di Davide';
+        if (progress) progress.value = 0;
+        audio.currentTime = 0;
+      });
+
+      audio.addEventListener('pause', () => {
+        if (icon) icon.textContent = 'play_arrow';
+        if (text && !audio.ended) text.textContent = 'Riprendi ascolto';
+      });
+
+      audio.addEventListener('play', () => {
+        if (icon) icon.textContent = 'pause';
+        if (text) text.textContent = 'Metti in Pausa';
+      });
+    }
+
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.1.1";
+    const CURRENT_APP_VERSION = "1.2.0";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
