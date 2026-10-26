@@ -559,7 +559,7 @@
           </div>
         </div>
 
-        <!-- AUDIOGUIDA DAVIDE PLAYER -->
+                <!-- AUDIOGUIDA CHARON PLAYER -->
         <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2.5">
@@ -567,14 +567,14 @@
                 <span class="material-symbols-outlined text-[22px]">headphones</span>
               </span>
               <div>
-                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida con la voce di Davide 🎙️</span>
-                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Castello & Guardia Reale</h4>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Castello di Praga & Guardia Reale</h4>
               </div>
             </div>
-            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio1-time">0:00 / 1:48</span>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio1-time">0:00 / --:--</span>
           </div>
 
-          <audio id="audio1" src="audio/castello_guardia.mp3" preload="metadata"></audio>
+          <audio id="audio1" src="audio/audio1_castello_guardia.mp3" preload="metadata"></audio>
 
           <!-- CONTROLLI AUDIO ACCESSIBILI -->
           <div class="flex items-center gap-2.5">
@@ -584,7 +584,7 @@
             
             <button type="button" onclick="togglePlay('audio1', 'audio1-btn-icon', 'audio1-btn-text')" id="audio1-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
               <span class="material-symbols-outlined text-[26px] fill" id="audio1-btn-icon">play_arrow</span>
-              <span id="audio1-btn-text">Ascolta il racconto di Davide</span>
+              <span id="audio1-btn-text">Ascolta la guida</span>
             </button>
 
             <button type="button" onclick="seekAudio('audio1', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
@@ -676,6 +676,45 @@
             Ammirate la maestosa Cattedrale di San Vito (l'ingresso alla prima navata è gratuito e senza attesa). Poi scendete a piedi lungo via Nerudova oppure riprendete comodamente il <strong>Tram 22</strong> da <em>Malostranské náměstí</em> per tornare a <em>Národní třída</em> in soli 8 minuti.  
             Verso le <strong>15:45 – 16:00</strong> ritirate le chiavi in camera all'Hotel Páv, fate una bella doccia e riposatevi per assorbire la sveglia dell'alba.
           </p>
+        </div>
+
+        <!-- AUDIOGUIDA CHARON PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Cattedrale di San Vito, Venceslao e Adalberto</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio2-time">0:00 / --:--</span>
+          </div>
+
+          <audio id="audio2" src="audio/audio2_san_vito.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio2', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio2', 'audio2-btn-icon', 'audio2-btn-text')" id="audio2-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio2-btn-icon">play_arrow</span>
+              <span id="audio2-btn-text">Ascolta la guida</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio2', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio2-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio2', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
         </div>
 
         <a href="https://www.google.com/maps/search/?api=1&query=St.+Vitus+Cathedral+Prague+Castle" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
@@ -771,6 +810,45 @@
           <p class="text-base text-charcoal-soft mt-1.5 leading-relaxed">
             Passeggiata dolce di 12 minuti in piano dall'Hotel Páv fino alla splendida <strong>Piazza della Città Vecchia (Staroměstské náměstí)</strong>. Andare al mattino presto è il segreto perfetto per godersi la sfilata meccanica degli Apostoli dell'Orologio Astronomico senza essere circondati da centinaia di persone.
           </p>
+        </div>
+
+        <!-- AUDIOGUIDA CHARON PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">L'Orologio Astronomico (Orloj) & La Città Vecchia</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio4-time">0:00 / --:--</span>
+          </div>
+
+          <audio id="audio4" src="audio/audio4_orologio_astronomico.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio4', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio4', 'audio4-btn-icon', 'audio4-btn-text')" id="audio4-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio4-btn-icon">play_arrow</span>
+              <span id="audio4-btn-text">Ascolta la guida</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio4', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio4-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio4', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
         </div>
 
         <a href="https://www.google.com/maps/search/?api=1&query=Prague+Astronomical+Clock" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
@@ -874,6 +952,45 @@
           </p>
         </div>
 
+        <!-- AUDIOGUIDA CHARON PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Il Quartiere Ebraico, Sinagoga & Antico Cimitero</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio5-time">0:00 / --:--</span>
+          </div>
+
+          <audio id="audio5" src="audio/audio5_quartiere_ebraico.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio5', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio5', 'audio5-btn-icon', 'audio5-btn-text')" id="audio5-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio5-btn-icon">play_arrow</span>
+              <span id="audio5-btn-text">Ascolta la guida</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio5', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio5-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio5', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
+        </div>
+
         <a href="https://www.google.com/maps/search/?api=1&query=Jewish+Quarter+Josefov+Prague" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
           <span class="material-symbols-outlined text-primary-fixed text-[22px]">location_on</span>
           <span>Mappa Quartiere Ebraico Josefov</span>
@@ -921,6 +1038,45 @@
           <p class="text-base text-charcoal-soft mt-1.5 leading-relaxed">
             Tour sul fiume già prenotato e pagato da Antonella su Tiqets. Un'ora rilassante al caldo nel salone vetrato mentre il tramonto accende le luci dorate del Castello e del Ponte Carlo.
           </p>
+        </div>
+
+        <!-- AUDIOGUIDA CHARON PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">Il Ponte Carlo & Il Martirio di San Giovanni Nepomuceno</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio3-time">0:00 / --:--</span>
+          </div>
+
+          <audio id="audio3" src="audio/audio3_ponte_carlo.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio3', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio3', 'audio3-btn-icon', 'audio3-btn-text')" id="audio3-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio3-btn-icon">play_arrow</span>
+              <span id="audio3-btn-text">Ascolta la guida</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio3', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio3-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio3', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
         </div>
 
         <!-- SCHEDA DATI VOUCHER TIQETS -->
@@ -1062,6 +1218,45 @@
           <p class="text-base text-charcoal-soft mt-1.5 leading-relaxed">
             A soli <strong>3 minuti a piedi in piano</strong> dall'Hotel Páv, nel piazzale esterno del centro commerciale Quadrio (Spálená 2121/22). Una scultura cinetica maestosa alta 11 metri composta da 42 strati mobili in acciaio inox lucido che ruotano continuamente creando riflessi magnifici.
           </p>
+        </div>
+
+        <!-- AUDIOGUIDA CHARON PLAYER -->
+        <div class="p-4 bg-terracotta-deep/5 border-2 border-primary/30 rounded-2xl flex flex-col gap-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-[22px]">headphones</span>
+              </span>
+              <div>
+                <span class="text-xs font-black uppercase tracking-wider text-primary">Audioguida Storica 🎙️</span>
+                <h4 class="font-serif font-bold text-base sm:text-lg text-charcoal-soft leading-tight">La Città Nuova & La Testa Rotante di Kafka</h4>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-charcoal-muted bg-paper-surface px-2.5 py-1 rounded-md border border-outline-soft" id="audio6-time">0:00 / --:--</span>
+          </div>
+
+          <audio id="audio6" src="audio/audio6_testa_kafka.mp3" preload="metadata"></audio>
+
+          <!-- CONTROLLI AUDIO ACCESSIBILI -->
+          <div class="flex items-center gap-2.5">
+            <button type="button" onclick="seekAudio('audio6', -10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Indietro di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">replay_10</span>
+            </button>
+            
+            <button type="button" onclick="togglePlay('audio6', 'audio6-btn-icon', 'audio6-btn-text')" id="audio6-play-btn" class="flex-grow min-h-[48px] rounded-xl bg-primary hover:bg-terracotta-deep text-white font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow active:scale-[0.98] transition">
+              <span class="material-symbols-outlined text-[26px] fill" id="audio6-btn-icon">play_arrow</span>
+              <span id="audio6-btn-text">Ascolta la guida</span>
+            </button>
+
+            <button type="button" onclick="seekAudio('audio6', 10)" class="w-12 h-12 rounded-xl bg-paper-surface hover:bg-stone-200 border border-outline-soft flex items-center justify-center text-charcoal-soft active:scale-95 transition shrink-0 shadow-sm" title="Avanti di 10 secondi">
+              <span class="material-symbols-outlined text-[24px]">forward_10</span>
+            </button>
+          </div>
+
+          <!-- PROGRESS BAR INTERATTIVA -->
+          <div class="flex items-center gap-2 pt-0.5">
+            <input type="range" id="audio6-progress" min="0" max="100" value="0" step="0.1" oninput="onProgressChange('audio6', this.value)" class="w-full h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary" />
+          </div>
         </div>
 
         <a href="https://www.google.com/maps/search/?api=1&query=Franz+Kafka+Rotating+Head+Spalena+2121%2F22+Prague" target="_blank" rel="noopener noreferrer" class="min-h-[50px] w-full bg-charcoal-soft hover:bg-stone-800 text-paper-surface font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-transform">
@@ -1655,7 +1850,9 @@
     // Inizializzazione Mappa Interattiva Tram 22
     document.addEventListener('DOMContentLoaded', () => {
       // Inizializza Audioguida Davide
-      setupAudioPlayer('audio1', 'audio1-time', 'audio1-progress', 'audio1-btn-icon', 'audio1-btn-text');
+      ['audio1', 'audio2', 'audio3', 'audio4', 'audio5', 'audio6'].forEach(id => {
+        setupAudioPlayer(id, `${id}-time`, `${id}-progress`, `${id}-btn-icon`, `${id}-btn-text`);
+      });
 
       // Inizializza preferenza font (default LARGE per mamma)
       try {
@@ -1810,7 +2007,7 @@
     }
 
     // Controllo automatico aggiornamenti (Zero Cache)
-    const CURRENT_APP_VERSION = "1.2.0";
+    const CURRENT_APP_VERSION = "1.3.0";
     async function checkForUpdates() {
       try {
         const res = await fetch('/version.json?t=' + Date.now(), { cache: 'no-store' });
